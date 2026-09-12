@@ -9,17 +9,17 @@ export function render(el: HTMLElement): void {
     ${toolHeader(meta)}
     <div class="mt-6 grid gap-6 lg:grid-cols-[1fr_320px]">
       <div><div id="dz"></div></div>
-      <div class="h-fit rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-700 dark:bg-slate-900">
+      <div class="h-fit rounded-2xl border border-zinc-200 bg-white p-5 dark:border-zinc-700 dark:bg-zinc-900">
         <div class="text-sm font-bold"> <i class="ph ph-sliders-horizontal text-base" aria-hidden="true"></i> Options</div>
-        <label class="mt-4 block text-xs font-semibold text-slate-500">ANGLE</label>
+        <label class="mt-4 block text-xs font-semibold text-zinc-500">ANGLE</label>
         <div class="mt-1 grid grid-cols-3 gap-2">
-          <button data-ang="90" class="ang rounded-xl border-2 border-orange-500 bg-orange-50 px-2 py-2.5 text-sm font-bold dark:bg-orange-950/40">90° ⟳</button>
-          <button data-ang="180" class="ang rounded-xl border border-slate-200 px-2 py-2.5 text-sm font-bold dark:border-slate-700">180°</button>
-          <button data-ang="270" class="ang rounded-xl border border-slate-200 px-2 py-2.5 text-sm font-bold dark:border-slate-700">270° ⟲</button>
+          <button data-ang="90" class="ang rounded-xl border-2 border-zinc-950 bg-zinc-950 px-2 py-2.5 text-sm font-bold text-white dark:border-lime-300 dark:bg-lime-300 dark:text-zinc-950">90° ⟳</button>
+          <button data-ang="180" class="ang rounded-xl border border-zinc-200 px-2 py-2.5 text-sm font-bold dark:border-zinc-700">180°</button>
+          <button data-ang="270" class="ang rounded-xl border border-zinc-200 px-2 py-2.5 text-sm font-bold dark:border-zinc-700">270° ⟲</button>
         </div>
-        <label class="mt-4 block text-xs font-semibold text-slate-500">PAGES (all or 1-3,5)</label>
-        <input id="optPages" value="all" class="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm dark:border-slate-700 dark:bg-slate-800" />
-        <button id="go" class="mt-5 w-full btn-press rounded-xl bg-orange-700 px-4 py-3 text-sm font-bold text-white shadow-md shadow-orange-900/20 transition hover:bg-orange-800 disabled:opacity-40">Rotate and save <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
+        <label class="mt-4 block text-xs font-semibold text-zinc-500">PAGES (all or 1-3,5)</label>
+        <input id="optPages" value="all" class="mt-1 w-full rounded-xl border border-zinc-200 px-3 py-2.5 text-sm dark:border-zinc-700 dark:bg-zinc-800" />
+        <button id="go" class="mt-5 w-full btn-press rounded-xl bg-lime-300 px-4 py-3 text-sm font-bold text-zinc-950 shadow-md shadow-lime-950/10 transition hover:bg-lime-200 disabled:opacity-40">Rotate and save <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
         ${progressBarHTML()}
       </div>
     </div>`
@@ -29,10 +29,10 @@ export function render(el: HTMLElement): void {
     b.addEventListener('click', () => {
       angle = Number(b.dataset.ang)
       el.querySelectorAll('.ang').forEach((x) => {
-        x.classList.remove('border-orange-500', 'bg-orange-50', 'dark:bg-orange-950/40', 'border-2')
+        x.classList.remove('border-zinc-950', 'bg-zinc-950', 'text-white', 'dark:border-lime-300', 'dark:bg-lime-300', 'dark:text-zinc-950', 'border-2')
         x.classList.add('border')
       })
-      b.classList.add('border-orange-500', 'bg-orange-50', 'dark:bg-orange-950/40', 'border-2')
+      b.classList.add('border-zinc-950', 'bg-zinc-950', 'text-white', 'dark:border-lime-300', 'dark:bg-lime-300', 'dark:text-zinc-950', 'border-2')
       b.classList.remove('border')
     }),
   )

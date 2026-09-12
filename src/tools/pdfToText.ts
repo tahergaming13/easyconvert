@@ -9,14 +9,14 @@ export function render(el: HTMLElement): void {
     <div class="mt-6 grid gap-6 lg:grid-cols-[1fr_320px]">
       <div>
         <div id="dz"></div>
-        <textarea id="txtOut" rows="14" placeholder="Extracted text will appear here…" class="mt-4 w-full rounded-2xl border border-slate-200 bg-white p-4 font-mono text-sm leading-relaxed dark:border-slate-700 dark:bg-slate-900"></textarea>
+        <textarea id="txtOut" rows="14" placeholder="Extracted text will appear here…" class="mt-4 w-full rounded-2xl border border-zinc-200 bg-white p-4 font-mono text-sm leading-relaxed dark:border-zinc-700 dark:bg-zinc-900"></textarea>
       </div>
-      <div class="h-fit rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-700 dark:bg-slate-900">
+      <div class="h-fit rounded-2xl border border-zinc-200 bg-white p-5 dark:border-zinc-700 dark:bg-zinc-900">
         <div class="text-sm font-bold"> <i class="ph ph-sliders-horizontal text-base" aria-hidden="true"></i> Options</div>
-        <label class="mt-4 flex items-center gap-2 text-sm"><input id="optSep" type="checkbox" checked class="h-4 w-4 accent-orange-600" /> Add page separators</label>
-        <button id="go" class="mt-4 w-full btn-press rounded-xl bg-orange-700 px-4 py-3 text-sm font-bold text-white shadow-md shadow-orange-900/20 transition hover:bg-orange-800 disabled:opacity-40">Extract text <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
-        <button id="dl" class="mt-2 hidden w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-bold hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800">Download .txt <i class="ph ph-download-simple text-base" aria-hidden="true"></i></button>
-        <button id="copy" class="mt-2 hidden w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-bold hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800">Copy <i class="ph ph-copy text-base" aria-hidden="true"></i></button>
+        <label class="mt-4 flex items-center gap-2 text-sm"><input id="optSep" type="checkbox" checked class="h-4 w-4 accent-lime-600" /> Add page separators</label>
+        <button id="go" class="mt-4 w-full btn-press rounded-xl bg-lime-300 px-4 py-3 text-sm font-bold text-zinc-950 shadow-md shadow-lime-950/10 transition hover:bg-lime-200 disabled:opacity-40">Extract text <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
+        <button id="dl" class="mt-2 hidden w-full rounded-xl border border-zinc-200 px-4 py-2.5 text-sm font-bold hover:bg-zinc-50 dark:border-zinc-700 dark:hover:bg-zinc-800">Download .txt <i class="ph ph-download-simple text-base" aria-hidden="true"></i></button>
+        <button id="copy" class="mt-2 hidden w-full rounded-xl border border-zinc-200 px-4 py-2.5 text-sm font-bold hover:bg-zinc-50 dark:border-zinc-700 dark:hover:bg-zinc-800">Copy <i class="ph ph-copy text-base" aria-hidden="true"></i></button>
         ${progressBarHTML()}
       </div>
     </div>`

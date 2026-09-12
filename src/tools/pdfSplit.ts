@@ -9,16 +9,16 @@ export function render(el: HTMLElement): void {
   el.innerHTML = `
     ${toolHeader(meta)}
     <div class="mt-6 grid gap-6 lg:grid-cols-[1fr_320px]">
-      <div><div id="dz"></div><div id="info" class="mt-3 text-sm text-slate-500"></div></div>
-      <div class="h-fit rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-700 dark:bg-slate-900">
+      <div><div id="dz"></div><div id="info" class="mt-3 text-sm text-zinc-500"></div></div>
+      <div class="h-fit rounded-2xl border border-zinc-200 bg-white p-5 dark:border-zinc-700 dark:bg-zinc-900">
         <div class="text-sm font-bold"> <i class="ph ph-sliders-horizontal text-base" aria-hidden="true"></i> Options</div>
         <div class="mt-4 grid gap-2">
-          <label class="flex cursor-pointer items-center gap-2 rounded-xl border border-slate-200 p-3 text-sm dark:border-slate-700"><input type="radio" name="mode" value="range" checked class="accent-orange-600" /> Extract range to one PDF</label>
-          <label class="flex cursor-pointer items-center gap-2 rounded-xl border border-slate-200 p-3 text-sm dark:border-slate-700"><input type="radio" name="mode" value="each" class="accent-orange-600" /> Every page → separate PDF (ZIP)</label>
+          <label class="flex cursor-pointer items-center gap-2 rounded-xl border border-zinc-200 p-3 text-sm dark:border-zinc-700"><input type="radio" name="mode" value="range" checked class="accent-lime-600" /> Extract range to one PDF</label>
+          <label class="flex cursor-pointer items-center gap-2 rounded-xl border border-zinc-200 p-3 text-sm dark:border-zinc-700"><input type="radio" name="mode" value="each" class="accent-lime-600" /> Every page → separate PDF (ZIP)</label>
         </div>
-        <label class="mt-4 block text-xs font-semibold text-slate-500">PAGES (e.g. 1-3,5)</label>
-        <input id="optPages" value="1-3" class="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm dark:border-slate-700 dark:bg-slate-800" />
-        <button id="go" class="mt-5 w-full btn-press rounded-xl bg-orange-700 px-4 py-3 text-sm font-bold text-white shadow-md shadow-orange-900/20 transition hover:bg-orange-800 disabled:opacity-40">Split <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
+        <label class="mt-4 block text-xs font-semibold text-zinc-500">PAGES (e.g. 1-3,5)</label>
+        <input id="optPages" value="1-3" class="mt-1 w-full rounded-xl border border-zinc-200 px-3 py-2.5 text-sm dark:border-zinc-700 dark:bg-zinc-800" />
+        <button id="go" class="mt-5 w-full btn-press rounded-xl bg-lime-300 px-4 py-3 text-sm font-bold text-zinc-950 shadow-md shadow-lime-950/10 transition hover:bg-lime-200 disabled:opacity-40">Split <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
         ${progressBarHTML()}
       </div>
     </div>`

@@ -39,15 +39,18 @@ npm run preview # preview the production build
 
 ## Design rules (anti-slop)
 
-- Type: Outfit (self-hosted via `@fontsource/outfit`, never a Google Fonts `<link>`)
+- Type: Outfit for UI, JetBrains Mono for labels/numerals/kbd (both self-hosted
+  via `@fontsource`, never a Google Fonts `<link>`)
+- Color: monochrome ink (`zinc-950`) / bone (`#fafaf9`) surfaces with hairline
+  borders, one signal-lime accent (`lime-300` on dark, `lime-700` text on light).
+  No purple, no orange, no gradients except the logo mark. Dark-first, both modes.
 - Icons: inline Phosphor SVGs via `ic('ph-<name>', '<size-class>')` in `src/ui/icons.ts`
   — only the set in `GLYPHS` is bundled; add a `?raw` import to extend it. No emojis in UI.
+- Tiles/badges: `tile()` helper in `shell.ts` (ink chip + lime glyph, inverted in dark)
 - Shape lock: cards `rounded-2xl` · controls/inputs `rounded-xl` · pills/badges `rounded-full`
-- Accent lock: warm orange (#ea580c family, text on white in orange-700+) against cool
-  slate neutrals (warm-cool contrast). Gradient use is limited to the logo mark;
-  all CTAs are solid orange-700 (white text) for AA contrast. No purple anywhere.
 - Motion: `.reveal` + `observeReveals()` (transform/opacity only), `btn-press` tactile
-  feedback, everything collapses under `prefers-reduced-motion` (see `style.css`)
+  feedback, film grain on `body::after`, everything collapses under
+  `prefers-reduced-motion` (see `style.css`)
 - One small label per hero max; headlines ≤ 2 lines; a bento grid has exactly as many
   cells as content items — never a blank tile
 

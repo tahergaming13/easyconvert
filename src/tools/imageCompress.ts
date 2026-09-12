@@ -9,22 +9,22 @@ export function render(el: HTMLElement): void {
     ${toolHeader(meta)}
     <div class="mt-6 grid gap-6 lg:grid-cols-[1fr_320px]">
       <div><div id="dz"></div><div id="out" class="mt-4 grid gap-2"></div></div>
-      <div class="h-fit rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-700 dark:bg-slate-900">
+      <div class="h-fit rounded-2xl border border-zinc-200 bg-white p-5 dark:border-zinc-700 dark:bg-zinc-900">
         <div class="text-sm font-bold"> <i class="ph ph-sliders-horizontal text-base" aria-hidden="true"></i> Options</div>
-        <label class="mt-4 block text-xs font-semibold text-slate-500">QUALITY: <span id="qVal">0.75</span></label>
+        <label class="mt-4 block text-xs font-semibold text-zinc-500">QUALITY: <span id="qVal">0.75</span></label>
         <input id="optQ" type="range" min="0.1" max="0.95" step="0.01" value="0.75" class="mt-1 w-full" />
-        <label class="mt-4 block text-xs font-semibold text-slate-500">MAX WIDTH (px, 0 = keep)</label>
-        <input id="optW" type="number" value="1920" min="0" max="8000" class="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm dark:border-slate-700 dark:bg-slate-800" />
-        <label class="mt-4 block text-xs font-semibold text-slate-500">MAX HEIGHT (px, 0 = keep)</label>
-        <input id="optH" type="number" value="1920" min="0" max="8000" class="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm dark:border-slate-700 dark:bg-slate-800" />
-        <label class="mt-4 block text-xs font-semibold text-slate-500">OUTPUT</label>
-        <select id="optFmt" class="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm dark:border-slate-700 dark:bg-slate-800">
+        <label class="mt-4 block text-xs font-semibold text-zinc-500">MAX WIDTH (px, 0 = keep)</label>
+        <input id="optW" type="number" value="1920" min="0" max="8000" class="mt-1 w-full rounded-xl border border-zinc-200 px-3 py-2.5 text-sm dark:border-zinc-700 dark:bg-zinc-800" />
+        <label class="mt-4 block text-xs font-semibold text-zinc-500">MAX HEIGHT (px, 0 = keep)</label>
+        <input id="optH" type="number" value="1920" min="0" max="8000" class="mt-1 w-full rounded-xl border border-zinc-200 px-3 py-2.5 text-sm dark:border-zinc-700 dark:bg-zinc-800" />
+        <label class="mt-4 block text-xs font-semibold text-zinc-500">OUTPUT</label>
+        <select id="optFmt" class="mt-1 w-full rounded-xl border border-zinc-200 px-3 py-2.5 text-sm dark:border-zinc-700 dark:bg-zinc-800">
           <option value="image/jpeg">JPG (smallest)</option>
           <option value="image/webp">WebP (modern, small)</option>
           <option value="image/png">PNG (lossless, bigger)</option>
         </select>
-        <button id="go" class="mt-5 w-full btn-press rounded-xl bg-orange-700 px-4 py-3 text-sm font-bold text-white shadow-md shadow-orange-900/20 transition hover:bg-orange-800 disabled:opacity-40">Compress <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
-        <button id="zipBtn" class="mt-2 hidden w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-bold hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800">Download all as ZIP <i class="ph ph-file-archive text-base" aria-hidden="true"></i></button>
+        <button id="go" class="mt-5 w-full btn-press rounded-xl bg-lime-300 px-4 py-3 text-sm font-bold text-zinc-950 shadow-md shadow-lime-950/10 transition hover:bg-lime-200 disabled:opacity-40">Compress <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
+        <button id="zipBtn" class="mt-2 hidden w-full rounded-xl border border-zinc-200 px-4 py-2.5 text-sm font-bold hover:bg-zinc-50 dark:border-zinc-700 dark:hover:bg-zinc-800">Download all as ZIP <i class="ph ph-file-archive text-base" aria-hidden="true"></i></button>
         ${progressBarHTML()}
       </div>
     </div>`
@@ -94,7 +94,7 @@ export function render(el: HTMLElement): void {
   function addRow(orig: File, blob: Blob, name: string, saved: number): void {
     const url = URL.createObjectURL(blob)
     const row = document.createElement('div')
-    row.className = 'flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-2.5 dark:border-slate-700 dark:bg-slate-900'
+    row.className = 'flex items-center gap-3 rounded-xl border border-zinc-200 bg-white p-2.5 dark:border-zinc-700 dark:bg-zinc-900'
     row.innerHTML = ''
     const img = document.createElement('img')
     img.src = url
@@ -105,12 +105,12 @@ export function render(el: HTMLElement): void {
     a.className = 'truncate text-sm font-semibold'
     a.textContent = name
     const b = document.createElement('div')
-    b.className = 'text-xs text-slate-400'
+    b.className = 'text-xs text-zinc-400'
     b.textContent = `${formatBytes(orig.size)} → ${formatBytes(blob.size)} • −${saved.toFixed(0)}%`
     mid.appendChild(a)
     mid.appendChild(b)
     const btn = document.createElement('button')
-    btn.className = 'rounded-lg bg-slate-900 px-3 py-1.5 text-xs font-bold text-white dark:bg-white dark:text-slate-900'
+    btn.className = 'rounded-lg bg-zinc-900 px-3 py-1.5 text-xs font-bold text-white dark:bg-white dark:text-zinc-900'
     btn.textContent = 'Save'
     btn.addEventListener('click', () => downloadBlob(blob, name))
     row.appendChild(img)

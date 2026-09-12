@@ -4,20 +4,23 @@
 
 @theme {
   --font-sans: "Outfit", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
-  /* Single warm accent (orange) against cool slate neutrals: warm-cool contrast */
-  --color-brand-50: #fff7ed;
-  --color-brand-100: #ffedd5;
-  --color-brand-500: #f97316;
-  --color-brand-600: #ea580c;
-  --color-brand-700: #c2410c;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
+  /* Signal lime on monochrome ink/bone. Warm-cool theory replaced by
+     high-voltage contrast: near-black + off-white + one electric accent. */
+  --color-signal-200: #d9f99d;
+  --color-signal-300: #bef264;
+  --color-signal-400: #a3e635;
+  --color-signal-700: #4d7c0f;
+  --color-ink-950: #09090b;
+  --color-ink-900: #101013;
+  --color-bone-50: #fafaf9;
 }
 
 /*
- * Shape lock (documented rule, applied everywhere):
- * cards = rounded-2xl (16px) · controls/inputs = rounded-xl (12px) · pills/badges = rounded-full
- * Accent lock: warm orange (#ea580c family) against cool slate neutrals.
- * Gradient use is limited to the logo mark; CTAs are solid orange-700 for contrast.
+ * Shape lock: cards rounded-2xl (16px) · controls rounded-xl (12px) · pills rounded-full.
+ * Accent lock: signal lime only — logo mark, primary CTAs, active states, key numerals.
+ * Surfaces stay monochrome (white / zinc-950) with hairline borders. No gradients
+ * except the logo mark. No glows, no glassmorphism.
  */
 
 html {
@@ -28,16 +31,31 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  background-color: #ffffff;
-  color: #0f172a;
+  background-color: #fafaf9;
+  color: #09090b;
 }
 .dark body {
-  background-color: #020617;
-  color: #f1f5f9;
+  background-color: #09090b;
+  color: #f4f4f5;
 }
 
 ::selection {
-  background: rgb(234 88 12 / 0.22);
+  background: #bef264;
+  color: #09090b;
+}
+
+/* Film grain — fixed texture layer, pointer-transparent, never on scroll containers */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.032;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.7'/%3E%3C/svg%3E");
+}
+.dark body::after {
+  opacity: 0.05;
 }
 
 /* Inline SVG icons align with text and never shrink inside flex rows */
@@ -50,17 +68,17 @@ svg.ph {
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb {
-  background: rgb(148 163 184 / 0.4);
+  background: rgb(161 161 170 / 0.45);
   border-radius: 8px;
   border: 2px solid transparent;
   background-clip: content-box;
 }
-.dark ::-webkit-scrollbar-thumb { background: rgb(71 85 105 / 0.7); background-clip: content-box; }
+.dark ::-webkit-scrollbar-thumb { background: rgb(82 82 91 / 0.8); background-clip: content-box; }
 
 /* Dropzone states */
 .dz-active {
-  border-color: #ea580c !important;
-  background: rgb(234 88 12 / 0.07) !important;
+  border-color: #a3e635 !important;
+  background: rgb(163 230 53 / 0.07) !important;
   transform: scale(1.01);
 }
 .dz {
@@ -68,14 +86,15 @@ svg.ph {
 }
 
 /* Range sliders */
-input[type="range"] { accent-color: #c2410c; }
+input[type="range"] { accent-color: #4d7c0f; }
+.dark input[type="range"] { accent-color: #bef264; }
 
 /* Card hover lift */
 .tool-card { transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
 .tool-card:hover { transform: translateY(-3px); }
 
 /* Tactile buttons */
-.btn-press { transition: transform .12s ease, opacity .15s ease, background .15s ease; }
+.btn-press { transition: transform .12s ease, background .15s ease, border-color .15s ease, color .15s ease; }
 .btn-press:active { transform: scale(0.98); }
 
 /* Toast entrance */
@@ -115,4 +134,5 @@ input[type="range"] { accent-color: #c2410c; }
   .toast { animation: none; }
   .tool-card, .tool-card:hover { transform: none; }
   .dz, .dz-active { transform: none; }
+  body::after { display: none; }
 }

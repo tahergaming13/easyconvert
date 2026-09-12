@@ -8,8 +8,11 @@ export interface ToolMeta {
   multiple: boolean
   badge?: string
   icon: string
-  gradient: string
+  /** Solid tile classes (ink chip, lime glyph — inverts in dark mode). No gradients. */
+  tile: string
 }
+
+const TILE = 'bg-zinc-950 text-lime-300 dark:bg-lime-300 dark:text-zinc-950'
 
 export const TOOLS: ToolMeta[] = [
   {
@@ -22,7 +25,7 @@ export const TOOLS: ToolMeta[] = [
     multiple: true,
     badge: 'Popular',
     icon: 'ph-file-pdf',
-    gradient: 'from-sky-600 to-cyan-500',
+    tile: TILE,
   },
   {
     id: 'pdf-to-image',
@@ -34,7 +37,7 @@ export const TOOLS: ToolMeta[] = [
     multiple: false,
     badge: 'Popular',
     icon: 'ph-file-image',
-    gradient: 'from-rose-500 to-orange-500',
+    tile: TILE,
   },
   {
     id: 'image-convert',
@@ -45,7 +48,7 @@ export const TOOLS: ToolMeta[] = [
     accept: 'image/*',
     multiple: true,
     icon: 'ph-arrows-left-right',
-    gradient: 'from-cyan-500 to-blue-500',
+    tile: TILE,
   },
   {
     id: 'image-compress',
@@ -56,7 +59,7 @@ export const TOOLS: ToolMeta[] = [
     accept: 'image/*',
     multiple: true,
     icon: 'ph-arrows-in',
-    gradient: 'from-emerald-500 to-teal-500',
+    tile: TILE,
   },
   {
     id: 'pdf-merge',
@@ -67,7 +70,7 @@ export const TOOLS: ToolMeta[] = [
     accept: 'application/pdf,.pdf',
     multiple: true,
     icon: 'ph-stack',
-    gradient: 'from-slate-700 to-slate-900',
+    tile: TILE,
   },
   {
     id: 'pdf-split',
@@ -78,7 +81,7 @@ export const TOOLS: ToolMeta[] = [
     accept: 'application/pdf,.pdf',
     multiple: false,
     icon: 'ph-scissors',
-    gradient: 'from-amber-500 to-yellow-500',
+    tile: TILE,
   },
   {
     id: 'pdf-compress',
@@ -89,7 +92,7 @@ export const TOOLS: ToolMeta[] = [
     accept: 'application/pdf,.pdf',
     multiple: false,
     icon: 'ph-file-archive',
-    gradient: 'from-green-500 to-lime-500',
+    tile: TILE,
   },
   {
     id: 'pdf-rotate',
@@ -100,7 +103,7 @@ export const TOOLS: ToolMeta[] = [
     accept: 'application/pdf,.pdf',
     multiple: false,
     icon: 'ph-arrow-clockwise',
-    gradient: 'from-blue-600 to-cyan-500',
+    tile: TILE,
   },
   {
     id: 'pdf-to-text',
@@ -111,7 +114,7 @@ export const TOOLS: ToolMeta[] = [
     accept: 'application/pdf,.pdf',
     multiple: false,
     icon: 'ph-text-aa',
-    gradient: 'from-slate-500 to-gray-600',
+    tile: TILE,
   },
   {
     id: 'text-to-pdf',
@@ -122,7 +125,7 @@ export const TOOLS: ToolMeta[] = [
     accept: '.txt,.md,.markdown,text/plain',
     multiple: false,
     icon: 'ph-note-pencil',
-    gradient: 'from-orange-500 to-red-500',
+    tile: TILE,
   },
 ]
 

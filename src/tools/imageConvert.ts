@@ -15,16 +15,16 @@ export function render(el: HTMLElement): void {
     ${toolHeader(meta)}
     <div class="mt-6 grid gap-6 lg:grid-cols-[1fr_320px]">
       <div><div id="dz"></div><div id="out" class="mt-4 grid gap-2"></div></div>
-      <div class="h-fit rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-700 dark:bg-slate-900">
-        <div class="text-sm font-bold text-slate-800 dark:text-slate-100"> <i class="ph ph-sliders-horizontal text-base" aria-hidden="true"></i> Options</div>
-        <label class="mt-4 block text-xs font-semibold text-slate-500">OUTPUT FORMAT</label>
-        <select id="optFmt" class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm dark:border-slate-700 dark:bg-slate-800">
+      <div class="h-fit rounded-2xl border border-zinc-200 bg-white p-5 dark:border-zinc-700 dark:bg-zinc-900">
+        <div class="text-sm font-bold text-zinc-800 dark:text-zinc-100"> <i class="ph ph-sliders-horizontal text-base" aria-hidden="true"></i> Options</div>
+        <label class="mt-4 block text-xs font-semibold text-zinc-500">OUTPUT FORMAT</label>
+        <select id="optFmt" class="mt-1 w-full rounded-xl border border-zinc-200 bg-white px-3 py-2.5 text-sm dark:border-zinc-700 dark:bg-zinc-800">
           ${FORMATS.map((f) => `<option value="${f.v}">${f.label}</option>`).join('')}
         </select>
-        <label class="mt-4 block text-xs font-semibold text-slate-500">QUALITY (JPG/WebP): <span id="qVal">0.9</span></label>
+        <label class="mt-4 block text-xs font-semibold text-zinc-500">QUALITY (JPG/WebP): <span id="qVal">0.9</span></label>
         <input id="optQ" type="range" min="0.3" max="1" step="0.01" value="0.9" class="mt-1 w-full" />
-        <button id="go" class="mt-5 w-full btn-press rounded-xl bg-orange-700 px-4 py-3 text-sm font-bold text-white shadow-md shadow-orange-900/20 transition hover:bg-orange-800 disabled:opacity-40">Convert images <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
-        <button id="zipBtn" class="mt-2 hidden w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-bold hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800">Download all as ZIP <i class="ph ph-file-archive text-base" aria-hidden="true"></i></button>
+        <button id="go" class="mt-5 w-full btn-press rounded-xl bg-lime-300 px-4 py-3 text-sm font-bold text-zinc-950 shadow-md shadow-lime-950/10 transition hover:bg-lime-200 disabled:opacity-40">Convert images <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
+        <button id="zipBtn" class="mt-2 hidden w-full rounded-xl border border-zinc-200 px-4 py-2.5 text-sm font-bold hover:bg-zinc-50 dark:border-zinc-700 dark:hover:bg-zinc-800">Download all as ZIP <i class="ph ph-file-archive text-base" aria-hidden="true"></i></button>
         ${progressBarHTML()}
       </div>
     </div>`
@@ -81,7 +81,7 @@ export function render(el: HTMLElement): void {
   function addRow(from: string, to: string, blob: Blob): void {
     const url = URL.createObjectURL(blob)
     const row = document.createElement('div')
-    row.className = 'flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-2.5 dark:border-slate-700 dark:bg-slate-900'
+    row.className = 'flex items-center gap-3 rounded-xl border border-zinc-200 bg-white p-2.5 dark:border-zinc-700 dark:bg-zinc-900'
     const img = document.createElement('img')
     img.src = url
     img.className = 'h-12 w-12 rounded-lg object-cover'
@@ -91,12 +91,12 @@ export function render(el: HTMLElement): void {
     a.className = 'truncate text-sm font-semibold'
     a.textContent = to
     const b = document.createElement('div')
-    b.className = 'truncate text-xs text-slate-400'
+    b.className = 'truncate text-xs text-zinc-400'
     b.textContent = `from ${from}`
     mid.appendChild(a)
     mid.appendChild(b)
     const btn = document.createElement('button')
-    btn.className = 'rounded-lg bg-slate-900 px-3 py-1.5 text-xs font-bold text-white dark:bg-white dark:text-slate-900'
+    btn.className = 'rounded-lg bg-zinc-900 px-3 py-1.5 text-xs font-bold text-white dark:bg-white dark:text-zinc-900'
     btn.textContent = 'Save'
     btn.addEventListener('click', () => downloadBlob(blob, to))
     row.appendChild(img)

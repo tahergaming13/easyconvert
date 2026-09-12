@@ -13,23 +13,23 @@ export function render(el: HTMLElement): void {
         <div id="dz"></div>
         <div id="gallery" class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3"></div>
       </div>
-      <div class="h-fit rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-700 dark:bg-slate-900">
-        <div class="text-sm font-bold text-slate-800 dark:text-slate-100"> <i class="ph ph-sliders-horizontal text-base" aria-hidden="true"></i> Options</div>
-        <label class="mt-4 block text-xs font-semibold text-slate-500">FORMAT</label>
-        <select id="optFmt" class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm dark:border-slate-700 dark:bg-slate-800">
+      <div class="h-fit rounded-2xl border border-zinc-200 bg-white p-5 dark:border-zinc-700 dark:bg-zinc-900">
+        <div class="text-sm font-bold text-zinc-800 dark:text-zinc-100"> <i class="ph ph-sliders-horizontal text-base" aria-hidden="true"></i> Options</div>
+        <label class="mt-4 block text-xs font-semibold text-zinc-500">FORMAT</label>
+        <select id="optFmt" class="mt-1 w-full rounded-xl border border-zinc-200 bg-white px-3 py-2.5 text-sm dark:border-zinc-700 dark:bg-zinc-800">
           <option value="jpeg">JPG (smaller)</option>
           <option value="png">PNG (best quality)</option>
         </select>
-        <label class="mt-4 block text-xs font-semibold text-slate-500">QUALITY / SCALE</label>
-        <select id="optScale" class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm dark:border-slate-700 dark:bg-slate-800">
+        <label class="mt-4 block text-xs font-semibold text-zinc-500">QUALITY / SCALE</label>
+        <select id="optScale" class="mt-1 w-full rounded-xl border border-zinc-200 bg-white px-3 py-2.5 text-sm dark:border-zinc-700 dark:bg-zinc-800">
           <option value="1.5">Standard (1.5x)</option>
           <option value="2" selected>High (2x, recommended)</option>
           <option value="3">Ultra (3x, large files)</option>
         </select>
-        <label class="mt-4 block text-xs font-semibold text-slate-500">PAGES (e.g. 1-3,5 or all)</label>
-        <input id="optPages" value="all" class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm dark:border-slate-700 dark:bg-slate-800" />
-        <button id="go" class="mt-5 w-full btn-press rounded-xl bg-orange-700 px-4 py-3 text-sm font-bold text-white shadow-md shadow-orange-900/20 transition hover:bg-orange-800 disabled:opacity-40">Convert to images <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
-        <button id="zipBtn" class="mt-2 hidden w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-bold text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800">Download all as ZIP <i class="ph ph-file-archive text-base" aria-hidden="true"></i></button>
+        <label class="mt-4 block text-xs font-semibold text-zinc-500">PAGES (e.g. 1-3,5 or all)</label>
+        <input id="optPages" value="all" class="mt-1 w-full rounded-xl border border-zinc-200 bg-white px-3 py-2.5 text-sm dark:border-zinc-700 dark:bg-zinc-800" />
+        <button id="go" class="mt-5 w-full btn-press rounded-xl bg-lime-300 px-4 py-3 text-sm font-bold text-zinc-950 shadow-md shadow-lime-950/10 transition hover:bg-lime-200 disabled:opacity-40">Convert to images <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
+        <button id="zipBtn" class="mt-2 hidden w-full rounded-xl border border-zinc-200 px-4 py-2.5 text-sm font-bold text-zinc-700 hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800">Download all as ZIP <i class="ph ph-file-archive text-base" aria-hidden="true"></i></button>
         ${progressBarHTML()}
         <div id="result" class="mt-4"></div>
       </div>
@@ -85,18 +85,18 @@ export function render(el: HTMLElement): void {
         rendered.push({ blob, name })
         const url = URL.createObjectURL(blob)
         const card = document.createElement('div')
-        card.className = 'overflow-hidden rounded-xl border border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-900'
+        card.className = 'overflow-hidden rounded-xl border border-zinc-200 bg-white dark:border-zinc-700 dark:bg-zinc-900'
         const img = document.createElement('img')
         img.src = url
-        img.className = 'result-thumb aspect-[3/4] w-full object-contain bg-slate-100 dark:bg-slate-800'
+        img.className = 'result-thumb aspect-[3/4] w-full object-contain bg-zinc-100 dark:bg-zinc-800'
         img.loading = 'lazy'
         const bar = document.createElement('div')
         bar.className = 'flex items-center justify-between px-2.5 py-2'
         const label = document.createElement('span')
-        label.className = 'truncate text-xs font-medium text-slate-600 dark:text-slate-300'
+        label.className = 'truncate text-xs font-medium text-zinc-600 dark:text-zinc-300'
         label.textContent = `Page ${p}`
         const dl = document.createElement('button')
-        dl.className = 'rounded-lg bg-slate-900 px-2.5 py-1 text-xs font-bold text-white hover:opacity-90 dark:bg-white dark:text-slate-900'
+        dl.className = 'rounded-lg bg-zinc-900 px-2.5 py-1 text-xs font-bold text-white hover:opacity-90 dark:bg-white dark:text-zinc-900'
         dl.textContent = 'Save'
         dl.addEventListener('click', () => downloadBlob(blob, name))
         bar.appendChild(label)

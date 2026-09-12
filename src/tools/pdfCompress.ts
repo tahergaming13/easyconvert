@@ -10,16 +10,16 @@ export function render(el: HTMLElement): void {
     <div class="mt-6 grid gap-6 lg:grid-cols-[1fr_320px]">
       <div>
         <div id="dz"></div>
-        <div class="mt-3 rounded-2xl border border-amber-500/25 bg-amber-500/10 p-4 text-sm text-amber-700 dark:text-amber-300">Browser compression re-renders pages as images. Great for scanned PDFs. Text stays readable but is no longer selectable. For text-heavy PDFs, try <b>Medium</b> first.</div>
+        <div class="mt-3 rounded-2xl border border-zinc-200 bg-zinc-100 p-4 text-sm text-zinc-600 dark:border-white/10 dark:bg-white/5 dark:text-zinc-400">Browser compression re-renders pages as images. Great for scanned PDFs. Text stays readable but is no longer selectable. For text-heavy PDFs, try <b>Medium</b> first.</div>
       </div>
-      <div class="h-fit rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-700 dark:bg-slate-900">
+      <div class="h-fit rounded-2xl border border-zinc-200 bg-white p-5 dark:border-zinc-700 dark:bg-zinc-900">
         <div class="text-sm font-bold"> <i class="ph ph-sliders-horizontal text-base" aria-hidden="true"></i> Level</div>
-        <select id="optLevel" class="mt-2 w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm dark:border-slate-700 dark:bg-slate-800">
+        <select id="optLevel" class="mt-2 w-full rounded-xl border border-zinc-200 px-3 py-2.5 text-sm dark:border-zinc-700 dark:bg-zinc-800">
           <option value="medium" selected>Medium — balanced (1.2x, q0.7)</option>
           <option value="low">Low size — smallest (1x, q0.55)</option>
           <option value="high">High quality — bigger (1.8x, q0.85)</option>
         </select>
-        <button id="go" class="mt-5 w-full btn-press rounded-xl bg-orange-700 px-4 py-3 text-sm font-bold text-white shadow-md shadow-orange-900/20 transition hover:bg-orange-800 disabled:opacity-40">Compress <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
+        <button id="go" class="mt-5 w-full btn-press rounded-xl bg-lime-300 px-4 py-3 text-sm font-bold text-zinc-950 shadow-md shadow-lime-950/10 transition hover:bg-lime-200 disabled:opacity-40">Compress <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
         ${progressBarHTML()}
         <div id="result" class="mt-4"></div>
       </div>

@@ -3,9 +3,12 @@ import '@fontsource/outfit/500.css'
 import '@fontsource/outfit/600.css'
 import '@fontsource/outfit/700.css'
 import '@fontsource/outfit/800.css'
+import '@fontsource/jetbrains-mono/400.css'
+import '@fontsource/jetbrains-mono/500.css'
+import '@fontsource/jetbrains-mono/700.css'
 import './style.css'
 import { TOOLS, getTool } from './data/tools.ts'
-import { ic, observeReveals, renderFooter, renderTopbar } from './ui/shell.ts'
+import { ic, observeReveals, renderFooter, renderTopbar, tile } from './ui/shell.ts'
 import { render as rImageToPdf } from './tools/imageToPdf.ts'
 import { render as rPdfToImage } from './tools/pdfToImage.ts'
 import { render as rImageConvert } from './tools/imageConvert.ts'
@@ -58,16 +61,16 @@ function route(): void {
     const meta = getTool(id)
     if (!meta || !RENDERERS[id]) {
       renderTopbar(top, undefined)
-      view.innerHTML = `<div class="mx-auto max-w-lg py-20 text-center"><div class="grid h-16 w-16 place-items-center rounded-2xl bg-slate-100 text-3xl text-slate-400 mx-auto dark:bg-slate-800">${ic('ph-file-x', 'text-3xl')}</div><h1 class="mt-4 text-2xl font-bold">Tool not found</h1><a href="#/" class="btn-press mt-5 inline-flex items-center gap-2 rounded-xl bg-orange-700 px-5 py-2.5 text-sm font-bold text-white">${ic('ph-arrow-left', 'text-base')} Back to all tools</a></div>`
+      view.innerHTML = `<div class="mx-auto max-w-lg py-20 text-center"><div class="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-zinc-100 text-zinc-400 dark:bg-white/5">${ic('ph-file-x', 'text-3xl')}</div><h1 class="mt-4 text-2xl font-bold">Tool not found</h1><a href="#/" class="btn-press mt-5 inline-flex items-center gap-2 rounded-xl bg-lime-300 px-5 py-2.5 text-sm font-bold text-zinc-950 hover:bg-lime-200">${ic('ph-arrow-left', 'text-base')} Back to all tools</a></div>`
       return
     }
     renderTopbar(top, id)
     view.innerHTML = `
-      <a href="#/" class="btn-press mb-5 inline-flex items-center gap-1.5 text-sm font-semibold text-slate-500 hover:text-orange-700 dark:hover:text-orange-300">${ic('ph-arrow-left', 'text-base')} All tools</a>
-      <div id="toolBody" class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm shadow-slate-900/5 md:p-8 dark:border-slate-800 dark:bg-slate-950"></div>
-      <h2 class="mt-10 text-lg font-bold text-slate-900 dark:text-white">Related tools</h2>
+      <a href="#/" class="btn-press mb-5 inline-flex items-center gap-1.5 font-mono text-[13px] font-medium text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white">${ic('ph-arrow-left', 'text-base')} index</a>
+      <div id="toolBody" class="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm shadow-zinc-950/5 md:p-8 dark:border-white/10 dark:bg-zinc-900"></div>
+      <h2 class="mt-10 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-zinc-400">Related tools</h2>
       <div class="mt-3 grid gap-3 sm:grid-cols-3">
-        ${suggest(id).map((t) => `<a href="#/${t.id}" class="tool-card rounded-2xl border border-slate-200 bg-white p-4 hover:border-orange-300 hover:shadow-lg hover:shadow-orange-900/5 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-orange-500/40"><span class="grid h-10 w-10 place-items-center rounded-xl bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300">${ic(t.icon, 'text-xl')}</span><span class="mt-2.5 block text-sm font-bold text-slate-900 dark:text-white">${t.name}</span><span class="block text-xs text-slate-400">${t.tagline}</span></a>`).join('')}
+        ${suggest(id).map((t) => `<a href="#/${t.id}" class="tool-card rounded-2xl border border-zinc-200 bg-white p-4 hover:border-lime-500 dark:border-white/10 dark:bg-zinc-900 dark:hover:border-lime-300/60"><span class="${tile('h-10 w-10 text-xl')}">${ic(t.icon, 'text-xl')}</span><span class="mt-2.5 block text-sm font-bold text-zinc-900 dark:text-white">${t.name}</span><span class="block font-mono text-[11px] text-zinc-400">${t.tagline}</span></a>`).join('')}
       </div>`
     RENDERERS[id](view.querySelector<HTMLElement>('#toolBody')!)
   }
@@ -81,16 +84,16 @@ function suggest(id: string): typeof TOOLS {
 
 function toolCard(t: (typeof TOOLS)[number], large = false): string {
   return `
-  <a href="#/${t.id}" data-toolcard data-name="${t.name} ${t.tagline} ${t.desc} ${t.id}" class="tool-card group flex ${large ? 'flex-col justify-between gap-6 p-6 md:p-7' : 'flex-col p-5'} rounded-2xl border border-slate-200 bg-white hover:border-orange-300 hover:shadow-xl hover:shadow-orange-900/10 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-orange-500/40">
+  <a href="#/${t.id}" data-toolcard data-name="${t.name} ${t.tagline} ${t.desc} ${t.id}" class="tool-card group flex ${large ? 'flex-col justify-between gap-6 p-6 md:p-7' : 'flex-col p-5'} rounded-2xl border border-zinc-200 bg-white hover:border-lime-500 hover:shadow-xl hover:shadow-lime-500/10 dark:border-white/10 dark:bg-zinc-900 dark:hover:border-lime-300/60">
     <div class="flex items-start justify-between gap-3">
-      <span class="grid ${large ? 'h-14 w-14' : 'h-12 w-12'} place-items-center rounded-2xl bg-gradient-to-br ${t.gradient} text-white shadow-md ${large ? 'text-3xl' : 'text-2xl'}">${ic(t.icon, large ? 'text-3xl' : 'text-2xl')}</span>
-      ${t.badge ? `<span class="inline-flex items-center gap-1 rounded-full bg-amber-500/15 px-2.5 py-1 text-[11px] font-bold text-amber-700 dark:text-amber-300">${ic('ph-star', 'text-xs')} ${t.badge}</span>` : ''}
+      <span class="${tile(large ? 'h-14 w-14 text-3xl' : 'h-12 w-12 text-2xl')}">${ic(t.icon, large ? 'text-3xl' : 'text-2xl')}</span>
+      ${t.badge ? `<span class="inline-flex items-center gap-1 rounded-full bg-lime-300/25 px-2.5 py-1 font-mono text-[11px] font-bold text-lime-700 dark:bg-lime-300/15 dark:text-lime-300">${ic('ph-star', 'text-xs')} ${t.badge}</span>` : ''}
     </div>
     <div>
-      <div class="${large ? 'text-xl' : 'text-base'} mt-4 font-bold text-slate-900 dark:text-white">${t.name}</div>
-      <div class="text-xs font-semibold text-orange-700 dark:text-orange-300">${t.tagline}</div>
-      <p class="clamp-2 mt-1.5 text-sm leading-relaxed text-slate-500 dark:text-slate-400">${t.desc}</p>
-      <div class="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-slate-700 transition-colors group-hover:text-orange-700 dark:text-slate-300 dark:group-hover:text-orange-300">Open tool ${ic('ph-arrow-right', 'text-base')}</div>
+      <div class="${large ? 'text-xl' : 'text-base'} mt-4 font-bold tracking-tight text-zinc-900 dark:text-white">${t.name}</div>
+      <div class="font-mono text-[11px] font-medium text-zinc-400">${t.tagline}</div>
+      <p class="clamp-2 mt-1.5 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">${t.desc}</p>
+      <div class="mt-3 inline-flex items-center gap-1.5 font-mono text-[13px] font-bold text-zinc-700 transition-colors group-hover:text-lime-700 dark:text-zinc-300 dark:group-hover:text-lime-300">open_${t.id.replace(/-/g, '_')} ${ic('ph-arrow-right', 'text-base')}</div>
     </div>
   </a>`
 }
@@ -103,40 +106,41 @@ function renderHome(v: HTMLElement): void {
   v.innerHTML = `
   <section class="grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
     <div>
-      <div class="reveal inline-flex items-center gap-1.5 rounded-full border border-orange-700/20 bg-orange-700/5 px-3 py-1 text-xs font-bold text-orange-700 dark:text-orange-300">${ic('ph-lightning', 'text-sm')} 10 free tools · no uploads · no watermarks</div>
-      <h1 class="reveal mt-4 text-4xl font-extrabold leading-[1.05] tracking-tight text-slate-900 md:text-5xl dark:text-white" style="--reveal-delay:60ms">Convert files without uploading them.</h1>
-      <p class="reveal mt-3 max-w-md text-base leading-relaxed text-slate-500 dark:text-slate-400" style="--reveal-delay:120ms">Images, PDFs and text — transformed privately in your browser.</p>
-      <div class="reveal mt-5 flex max-w-md items-center gap-2 rounded-xl border border-slate-200 bg-white p-2 pl-3.5 shadow-sm focus-within:border-orange-400 dark:border-slate-700 dark:bg-slate-900" style="--reveal-delay:180ms">
-        <span class="text-slate-400">${ic('ph-magnifying-glass', 'text-lg')}</span>
-        <input id="search" placeholder="Search tools — try merge, jpg, text" aria-label="Search tools" class="w-full bg-transparent py-1.5 text-sm text-slate-900 outline-none placeholder:text-slate-400 dark:text-white" />
+      <div class="reveal inline-flex items-center gap-2 rounded-full border border-zinc-200 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-zinc-500 dark:border-white/10 dark:text-zinc-400"><span class="h-1.5 w-1.5 rounded-full bg-lime-500"></span>10 tools · zero uploads · zero watermark</div>
+      <h1 class="reveal mt-4 text-4xl font-extrabold leading-[1.02] tracking-tight text-zinc-900 md:text-6xl dark:text-white" style="--reveal-delay:60ms">Convert files<br/>without <em class="text-lime-700 dark:text-lime-300">uploading</em> them.</h1>
+      <p class="reveal mt-4 max-w-md text-base leading-relaxed text-zinc-500 dark:text-zinc-400" style="--reveal-delay:120ms">Images, PDFs and text — transformed privately, inside your own browser tab.</p>
+      <div class="reveal mt-6 flex max-w-md items-center gap-2 rounded-xl border border-zinc-200 bg-white p-2 pl-3.5 shadow-sm focus-within:border-lime-600 dark:border-white/10 dark:bg-zinc-900" style="--reveal-delay:180ms">
+        <span class="text-zinc-400">${ic('ph-magnifying-glass', 'text-lg')}</span>
+        <input id="search" placeholder="Search tools — try merge, jpg, text" aria-label="Search tools" class="w-full bg-transparent py-1.5 font-mono text-[13px] text-zinc-900 outline-none placeholder:text-zinc-400 dark:text-white" />
+        <kbd class="hidden rounded-md border border-zinc-200 px-1.5 py-0.5 font-mono text-[11px] text-zinc-400 sm:block dark:border-white/10">/</kbd>
       </div>
       <div class="reveal mt-4 flex flex-wrap gap-2.5" style="--reveal-delay:240ms">
-        <a href="#/image-to-pdf" class="btn-press inline-flex items-center gap-2 rounded-xl bg-orange-700 px-5 py-2.5 text-sm font-bold text-white shadow-md shadow-orange-900/20 hover:bg-orange-800">Start converting ${ic('ph-arrow-right', 'text-base')}</a>
-        <a href="#/pdf-merge" class="btn-press inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-2.5 text-sm font-bold text-slate-700 hover:border-orange-400 hover:text-orange-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-orange-500 dark:hover:text-orange-300">Merge PDFs</a>
+        <a href="#/image-to-pdf" class="btn-press inline-flex items-center gap-2 rounded-xl bg-lime-300 px-5 py-2.5 text-sm font-bold text-zinc-950 hover:bg-lime-200">Start converting ${ic('ph-arrow-right', 'text-base')}</a>
+        <a href="#/pdf-merge" class="btn-press inline-flex items-center gap-2 rounded-xl border border-zinc-300 bg-transparent px-5 py-2.5 font-mono text-[13px] font-bold text-zinc-700 hover:border-zinc-950 dark:border-white/15 dark:text-zinc-200 dark:hover:border-lime-300">merge_pdfs</a>
       </div>
     </div>
-    <div class="reveal rounded-2xl border border-slate-200 bg-white p-4 shadow-sm shadow-slate-900/5 sm:p-5 dark:border-slate-800 dark:bg-slate-900" style="--reveal-delay:200ms">
+    <div class="reveal rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm shadow-zinc-950/5 sm:p-5 dark:border-white/10 dark:bg-zinc-900" style="--reveal-delay:200ms">
       <div class="flex items-center justify-between px-1 pb-3">
-        <span class="text-sm font-bold text-slate-800 dark:text-slate-100">Quick launch</span>
-        <a href="#/" class="text-xs font-semibold text-orange-700 hover:text-orange-800 dark:text-orange-300">View all</a>
+        <span class="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-zinc-400">quick_launch</span>
+        <span class="flex items-center gap-1.5 font-mono text-[11px] text-zinc-400"><span class="h-1.5 w-1.5 animate-pulse rounded-full bg-lime-500"></span>local</span>
       </div>
       <div class="grid grid-cols-2 gap-2.5">
         ${['image-to-pdf', 'pdf-to-image', 'pdf-merge', 'image-compress'].map((id) => {
           const t = getTool(id)!
-          return `<a href="#/${t.id}" class="btn-press group rounded-xl border border-slate-200 p-3.5 text-left transition-colors hover:border-orange-300 hover:bg-orange-50/50 dark:border-slate-700 dark:hover:border-orange-500/50 dark:hover:bg-orange-950/30"><span class="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br ${t.gradient} text-white">${ic(t.icon, 'text-xl')}</span><span class="mt-2.5 block text-sm font-bold leading-tight text-slate-800 dark:text-slate-100">${t.name}</span><span class="mt-0.5 block text-xs text-slate-400">${t.tagline}</span></a>`
+          return `<a href="#/${t.id}" class="btn-press group rounded-xl border border-zinc-200 p-3.5 text-left transition-colors hover:border-lime-500 hover:bg-lime-300/10 dark:border-white/10 dark:hover:border-lime-300/60 dark:hover:bg-lime-300/5"><span class="${tile('h-10 w-10 text-xl')}">${ic(t.icon, 'text-xl')}</span><span class="mt-2.5 block text-sm font-bold leading-tight text-zinc-800 dark:text-zinc-100">${t.name}</span><span class="mt-0.5 block font-mono text-[11px] text-zinc-400">${t.tagline}</span></a>`
         }).join('')}
       </div>
-      <div class="mt-3 grid grid-cols-3 divide-x divide-slate-100 rounded-xl bg-slate-50 py-3 text-center dark:divide-slate-800 dark:bg-slate-950/60">
-        <div><div class="text-lg font-extrabold text-slate-900 dark:text-white">10</div><div class="text-[11px] font-semibold uppercase tracking-wide text-slate-400">Tools</div></div>
-        <div><div class="text-lg font-extrabold text-slate-900 dark:text-white">0</div><div class="text-[11px] font-semibold uppercase tracking-wide text-slate-400">Uploads</div></div>
-        <div><div class="text-lg font-extrabold text-slate-900 dark:text-white">100%</div><div class="text-[11px] font-semibold uppercase tracking-wide text-slate-400">Private</div></div>
+      <div class="mt-3 grid grid-cols-3 divide-x divide-zinc-200 rounded-xl bg-zinc-100 py-3 text-center dark:divide-white/10 dark:bg-black/40">
+        <div><div class="font-mono text-lg font-bold text-zinc-900 dark:text-white">10</div><div class="font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-zinc-400">tools</div></div>
+        <div><div class="font-mono text-lg font-bold text-zinc-900 dark:text-white">0</div><div class="font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-zinc-400">uploads</div></div>
+        <div><div class="font-mono text-lg font-bold text-lime-700 dark:text-lime-300">100%</div><div class="font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-zinc-400">private</div></div>
       </div>
     </div>
   </section>
 
   <section class="mt-12 md:mt-16">
     <div class="reveal flex flex-wrap items-end justify-between gap-2">
-      <h2 class="text-xl font-bold tracking-tight text-slate-900 md:text-2xl dark:text-white">Most used</h2>
+      <h2 class="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-zinc-400">01 — most_used</h2>
     </div>
     <div class="mt-4 grid gap-4 md:grid-cols-2">
       ${popular.map((t) => `<div class="reveal">${toolCard(t, true)}</div>`).join('')}
@@ -144,50 +148,50 @@ function renderHome(v: HTMLElement): void {
   </section>
 
   <section class="mt-10 md:mt-12">
-    <h2 class="reveal text-xl font-bold tracking-tight text-slate-900 md:text-2xl dark:text-white">PDF tools</h2>
+    <h2 class="reveal font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-zinc-400">02 — pdf_tools</h2>
     <div id="gridPdf" class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       ${pdfRest.map((t, i) => `<div class="reveal" style="--reveal-delay:${(i % 3) * 70}ms">${toolCard(t)}</div>`).join('')}
     </div>
   </section>
 
   <section class="mt-10 md:mt-12">
-    <h2 class="reveal text-xl font-bold tracking-tight text-slate-900 md:text-2xl dark:text-white">Image tools</h2>
+    <h2 class="reveal font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-zinc-400">03 — image_tools</h2>
     <div id="gridImg" class="mt-4 grid gap-4 sm:grid-cols-2">
       ${imgRest.map((t, i) => `<div class="reveal" style="--reveal-delay:${i * 70}ms">${toolCard(t)}</div>`).join('')}
     </div>
   </section>
 
-  <section class="reveal mt-12 grid gap-8 rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 md:mt-16 lg:grid-cols-2 lg:gap-12 dark:border-slate-800 dark:bg-slate-900">
+  <section class="reveal mt-12 grid gap-8 rounded-2xl bg-zinc-950 p-6 sm:p-8 md:mt-16 lg:grid-cols-2 lg:gap-12 dark:bg-lime-300">
     <div>
-      <h2 class="text-xl font-bold tracking-tight text-slate-900 md:text-2xl dark:text-white">Private by design, not by promise.</h2>
-      <p class="mt-2 max-w-md text-sm leading-relaxed text-slate-500 dark:text-slate-400">Most converters upload your files to a server. EasyConvert runs the conversion libraries directly on your device — nothing to intercept, store, or leak.</p>
+      <div class="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-lime-300 dark:text-zinc-700">why_local</div>
+      <h2 class="mt-2 text-xl font-bold tracking-tight text-white md:text-2xl dark:text-zinc-950">Private by design, not by promise.</h2>
+      <p class="mt-2 max-w-md text-sm leading-relaxed text-zinc-400 dark:text-zinc-700">Most converters upload your files to a server. EasyConvert runs the conversion libraries directly on your device — nothing to intercept, store, or leak.</p>
     </div>
-    <ul class="grid content-center gap-3">
+    <ul class="grid content-center gap-2.5">
       ${[
-        ['ph-shield-check', 'No uploads, ever', 'Files are processed in memory and never touch a network.'],
-        ['ph-lightning', 'Instant and offline-tolerant', 'No queues, no waiting rooms — conversion starts immediately.'],
+        ['ph-shield-check', 'No uploads, ever', 'Processed in memory. Nothing touches a network.'],
+        ['ph-lightning', 'Instant, no queues', 'No waiting rooms — conversion starts immediately.'],
         ['ph-x', 'No accounts or watermarks', 'Open the site, convert, download. Nothing else.'],
-      ].map(([icon, title, body]) => `<li class="flex items-start gap-3 rounded-xl bg-slate-50 p-3.5 dark:bg-slate-950/60"><span class="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-orange-700/10 text-orange-700 dark:text-orange-300">${ic(icon, 'text-lg')}</span><span><span class="block text-sm font-bold text-slate-800 dark:text-slate-100">${title}</span><span class="mt-0.5 block text-sm text-slate-500 dark:text-slate-400">${body}</span></span></li>`).join('')}
+      ].map(([icon, title, body]) => `<li class="flex items-start gap-3 rounded-xl bg-white/5 p-3.5 dark:bg-zinc-950/10"><span class="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-lime-300 text-zinc-950 dark:bg-zinc-950 dark:text-lime-300">${ic(icon, 'text-lg')}</span><span><span class="block text-sm font-bold text-white dark:text-zinc-950">${title}</span><span class="mt-0.5 block text-sm text-zinc-400 dark:text-zinc-700">${body}</span></span></li>`).join('')}
     </ul>
   </section>
 
   <section class="mt-10 md:mt-12">
-    <h2 class="reveal text-xl font-bold tracking-tight text-slate-900 md:text-2xl dark:text-white">How it works</h2>
+    <h2 class="reveal font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-zinc-400">04 — how_it_works</h2>
     <ol class="mt-4 grid gap-4 md:grid-cols-3">
       ${[
-        ['01', 'Pick a tool', 'Choose one of the ten converters above — each page guides you.'],
+        ['01', 'Pick a tool', 'Choose one of the ten converters above. Each page guides you.'],
         ['02', 'Drop your files', 'Drag files in, reorder with one click, tune the options.'],
         ['03', 'Download', 'Convert in one click and save the result or a ZIP.'],
-      ].map(([n, title, body], i) => `<li class="reveal rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900" style="--reveal-delay:${i * 70}ms"><div class="text-sm font-extrabold tabular-nums text-orange-700 dark:text-orange-300">${n}</div><div class="mt-1.5 text-base font-bold text-slate-900 dark:text-white">${title}</div><p class="mt-1 text-sm leading-relaxed text-slate-500 dark:text-slate-400">${body}</p></li>`).join('')}
+      ].map(([n, title, body], i) => `<li class="reveal rounded-2xl border border-zinc-200 bg-white p-5 dark:border-white/10 dark:bg-zinc-900" style="--reveal-delay:${i * 70}ms"><div class="font-mono text-sm font-bold text-lime-700 dark:text-lime-300">${n}</div><div class="mt-1.5 text-base font-bold text-zinc-900 dark:text-white">${title}</div><p class="mt-1 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">${body}</p></li>`).join('')}
     </ol>
   </section>
 
-  <div id="noResults" class="hidden rounded-2xl border border-dashed border-slate-300 p-8 text-center text-sm text-slate-400">No tools match your search.</div>`
+  <div id="noResults" class="hidden rounded-2xl border border-dashed border-zinc-300 p-8 text-center font-mono text-[13px] text-zinc-400">no matches — clear the search.</div>`
 
   const search = v.querySelector<HTMLInputElement>('#search')!
   const noResults = v.querySelector<HTMLElement>('#noResults')!
 
-  // Tag cards for search filtering (wrappers carry data, inner anchor stays intact)
   v.querySelectorAll<HTMLElement>('[data-toolcard]').forEach((a) => {
     const wrap = a.parentElement!
     wrap.setAttribute('data-search', (a.getAttribute('data-name') ?? '').toLowerCase())
@@ -207,4 +211,17 @@ function renderHome(v: HTMLElement): void {
 }
 
 window.addEventListener('hashchange', route)
+
+// Global `/` shortcut focuses the home search box (attached once).
+window.addEventListener('keydown', (e: KeyboardEvent) => {
+  if (e.key !== '/') return
+  const active = document.activeElement
+  if (active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA')) return
+  const s = document.getElementById('search')
+  if (s) {
+    e.preventDefault()
+    ;(s as HTMLInputElement).focus()
+  }
+})
+
 route()

@@ -13,23 +13,23 @@ export function render(el: HTMLElement): void {
         <div id="dz"></div>
         <div id="preview" class="mt-4 grid grid-cols-3 gap-2 sm:grid-cols-4"></div>
       </div>
-      <div class="h-fit rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-700 dark:bg-slate-900">
-        <div class="text-sm font-bold text-slate-800 dark:text-slate-100"> <i class="ph ph-sliders-horizontal text-base" aria-hidden="true"></i> Options</div>
-        <label class="mt-4 block text-xs font-semibold text-slate-500">PAGE SIZE</label>
-        <select id="optSize" class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm dark:border-slate-700 dark:bg-slate-800">
+      <div class="h-fit rounded-2xl border border-zinc-200 bg-white p-5 dark:border-zinc-700 dark:bg-zinc-900">
+        <div class="text-sm font-bold text-zinc-800 dark:text-zinc-100"> <i class="ph ph-sliders-horizontal text-base" aria-hidden="true"></i> Options</div>
+        <label class="mt-4 block text-xs font-semibold text-zinc-500">PAGE SIZE</label>
+        <select id="optSize" class="mt-1 w-full rounded-xl border border-zinc-200 bg-white px-3 py-2.5 text-sm dark:border-zinc-700 dark:bg-zinc-800">
           <option value="fit">Fit to image (recommended)</option>
           <option value="a4">A4</option>
           <option value="letter">US Letter</option>
         </select>
-        <label class="mt-4 block text-xs font-semibold text-slate-500">ORIENTATION (for A4/Letter)</label>
-        <select id="optOrient" class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm dark:border-slate-700 dark:bg-slate-800">
+        <label class="mt-4 block text-xs font-semibold text-zinc-500">ORIENTATION (for A4/Letter)</label>
+        <select id="optOrient" class="mt-1 w-full rounded-xl border border-zinc-200 bg-white px-3 py-2.5 text-sm dark:border-zinc-700 dark:bg-zinc-800">
           <option value="auto">Auto</option>
           <option value="p">Portrait</option>
           <option value="l">Landscape</option>
         </select>
-        <label class="mt-4 block text-xs font-semibold text-slate-500">IMAGE QUALITY: <span id="qVal">0.92</span></label>
+        <label class="mt-4 block text-xs font-semibold text-zinc-500">IMAGE QUALITY: <span id="qVal">0.92</span></label>
         <input id="optQ" type="range" min="0.4" max="1" step="0.01" value="0.92" class="mt-1 w-full" />
-        <button id="go" class="mt-5 w-full btn-press rounded-xl bg-orange-700 px-4 py-3 text-sm font-bold text-white shadow-md shadow-orange-900/20 transition hover:bg-orange-800 disabled:opacity-40">Convert to PDF <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
+        <button id="go" class="mt-5 w-full btn-press rounded-xl bg-lime-300 px-4 py-3 text-sm font-bold text-zinc-950 shadow-md shadow-lime-950/10 transition hover:bg-lime-200 disabled:opacity-40">Convert to PDF <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
         ${progressBarHTML()}
         <div id="result" class="mt-4"></div>
       </div>
@@ -51,13 +51,13 @@ export function render(el: HTMLElement): void {
     files.forEach((f) => {
       const url = URL.createObjectURL(f)
       const d = document.createElement('div')
-      d.className = 'overflow-hidden rounded-xl border border-slate-200 dark:border-slate-700'
+      d.className = 'overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-700'
       const img = document.createElement('img')
       img.src = url
       img.className = 'h-24 w-full object-cover'
       img.loading = 'lazy'
       const cap = document.createElement('div')
-      cap.className = 'truncate px-2 py-1 text-[11px] text-slate-500'
+      cap.className = 'truncate px-2 py-1 text-[11px] text-zinc-500'
       cap.textContent = f.name
       d.appendChild(img)
       d.appendChild(cap)
