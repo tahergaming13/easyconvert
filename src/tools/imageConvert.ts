@@ -16,15 +16,15 @@ export function render(el: HTMLElement): void {
     <div class="mt-6 grid gap-6 lg:grid-cols-[1fr_320px]">
       <div><div id="dz"></div><div id="out" class="mt-4 grid gap-2"></div></div>
       <div class="h-fit rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-700 dark:bg-slate-900">
-        <div class="text-sm font-bold text-slate-800 dark:text-slate-100">⚙️ Options</div>
+        <div class="text-sm font-bold text-slate-800 dark:text-slate-100"> <i class="ph ph-sliders-horizontal text-base" aria-hidden="true"></i> Options</div>
         <label class="mt-4 block text-xs font-semibold text-slate-500">OUTPUT FORMAT</label>
         <select id="optFmt" class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm dark:border-slate-700 dark:bg-slate-800">
           ${FORMATS.map((f) => `<option value="${f.v}">${f.label}</option>`).join('')}
         </select>
         <label class="mt-4 block text-xs font-semibold text-slate-500">QUALITY (JPG/WebP): <span id="qVal">0.9</span></label>
         <input id="optQ" type="range" min="0.3" max="1" step="0.01" value="0.9" class="mt-1 w-full" />
-        <button id="go" class="mt-5 w-full rounded-xl bg-gradient-to-r from-sky-500 to-cyan-500 px-4 py-3 text-sm font-bold text-white shadow-lg transition hover:opacity-95 disabled:opacity-40">Convert images ⚡</button>
-        <button id="zipBtn" class="mt-2 hidden w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-bold hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800">Download all as ZIP 📦</button>
+        <button id="go" class="mt-5 w-full rounded-xl bg-gradient-to-r from-sky-500 to-cyan-500 px-4 py-3 text-sm font-bold text-white shadow-lg transition hover:opacity-95 disabled:opacity-40">Convert images <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
+        <button id="zipBtn" class="mt-2 hidden w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-bold hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800">Download all as ZIP <i class="ph ph-file-archive text-base" aria-hidden="true"></i></button>
         ${progressBarHTML()}
       </div>
     </div>`

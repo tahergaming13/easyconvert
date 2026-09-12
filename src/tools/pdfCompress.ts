@@ -10,16 +10,16 @@ export function render(el: HTMLElement): void {
     <div class="mt-6 grid gap-6 lg:grid-cols-[1fr_320px]">
       <div>
         <div id="dz"></div>
-        <div class="mt-3 rounded-2xl border border-amber-500/25 bg-amber-500/10 p-4 text-sm text-amber-700 dark:text-amber-300">ℹ️ Browser compression re-renders pages as images. Great for scanned PDFs. Text stays readable but is no longer selectable. For text-heavy PDFs, try <b>Medium</b> first.</div>
+        <div class="mt-3 rounded-2xl border border-amber-500/25 bg-amber-500/10 p-4 text-sm text-amber-700 dark:text-amber-300">Browser compression re-renders pages as images. Great for scanned PDFs. Text stays readable but is no longer selectable. For text-heavy PDFs, try <b>Medium</b> first.</div>
       </div>
       <div class="h-fit rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-700 dark:bg-slate-900">
-        <div class="text-sm font-bold">⚙️ Level</div>
+        <div class="text-sm font-bold"> <i class="ph ph-sliders-horizontal text-base" aria-hidden="true"></i> Level</div>
         <select id="optLevel" class="mt-2 w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm dark:border-slate-700 dark:bg-slate-800">
           <option value="medium" selected>Medium — balanced (1.2x, q0.7)</option>
           <option value="low">Low size — smallest (1x, q0.55)</option>
           <option value="high">High quality — bigger (1.8x, q0.85)</option>
         </select>
-        <button id="go" class="mt-5 w-full rounded-xl bg-gradient-to-r from-green-500 to-lime-500 px-4 py-3 text-sm font-bold text-white shadow-lg disabled:opacity-40">Compress ⚡</button>
+        <button id="go" class="mt-5 w-full rounded-xl bg-gradient-to-r from-green-500 to-lime-500 px-4 py-3 text-sm font-bold text-white shadow-lg disabled:opacity-40">Compress <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
         ${progressBarHTML()}
         <div id="result" class="mt-4"></div>
       </div>
@@ -70,7 +70,7 @@ export function render(el: HTMLElement): void {
       res.innerHTML = ''
       const ok = document.createElement('div')
       ok.className = 'rounded-xl border border-emerald-500/25 bg-emerald-500/10 p-3 text-sm text-emerald-700 dark:text-emerald-300'
-      ok.textContent = `✅ ${formatBytes(files[0].size)} → ${formatBytes(blob.size)} • ${name}`
+      ok.textContent = `Done — ${formatBytes(files[0].size)} went down to ${formatBytes(blob.size)} · ${name}`
       res.appendChild(ok)
       setProgress(100, 'Done')
       toast('Compressed PDF downloaded.', 'ok')

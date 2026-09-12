@@ -10,7 +10,7 @@ export function render(el: HTMLElement): void {
     <div class="mt-6 grid gap-6 lg:grid-cols-[1fr_320px]">
       <div><div id="dz"></div><div id="out" class="mt-4 grid gap-2"></div></div>
       <div class="h-fit rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-700 dark:bg-slate-900">
-        <div class="text-sm font-bold">⚙️ Options</div>
+        <div class="text-sm font-bold"> <i class="ph ph-sliders-horizontal text-base" aria-hidden="true"></i> Options</div>
         <label class="mt-4 block text-xs font-semibold text-slate-500">QUALITY: <span id="qVal">0.75</span></label>
         <input id="optQ" type="range" min="0.1" max="0.95" step="0.01" value="0.75" class="mt-1 w-full" />
         <label class="mt-4 block text-xs font-semibold text-slate-500">MAX WIDTH (px, 0 = keep)</label>
@@ -23,8 +23,8 @@ export function render(el: HTMLElement): void {
           <option value="image/webp">WebP (modern, small)</option>
           <option value="image/png">PNG (lossless, bigger)</option>
         </select>
-        <button id="go" class="mt-5 w-full rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 px-4 py-3 text-sm font-bold text-white shadow-lg disabled:opacity-40">Compress ⚡</button>
-        <button id="zipBtn" class="mt-2 hidden w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-bold hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800">Download all as ZIP 📦</button>
+        <button id="go" class="mt-5 w-full rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 px-4 py-3 text-sm font-bold text-white shadow-lg disabled:opacity-40">Compress <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
+        <button id="zipBtn" class="mt-2 hidden w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-bold hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800">Download all as ZIP <i class="ph ph-file-archive text-base" aria-hidden="true"></i></button>
         ${progressBarHTML()}
       </div>
     </div>`

@@ -10,10 +10,10 @@ export function render(el: HTMLElement): void {
     <div class="mt-6 grid gap-6 lg:grid-cols-[1fr_320px]">
       <div><div id="dz"></div><p class="mt-2 text-xs text-slate-400">Tip: use ↑ ↓ to reorder — merge follows that order.</p></div>
       <div class="h-fit rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-700 dark:bg-slate-900">
-        <div class="text-sm font-bold">⚙️ Options</div>
+        <div class="text-sm font-bold"> <i class="ph ph-sliders-horizontal text-base" aria-hidden="true"></i> Options</div>
         <label class="mt-4 block text-xs font-semibold text-slate-500">OUTPUT NAME</label>
         <input id="optName" value="easyconvert-merged.pdf" class="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm dark:border-slate-700 dark:bg-slate-800" />
-        <button id="go" class="mt-5 w-full rounded-xl bg-gradient-to-r from-violet-500 to-purple-500 px-4 py-3 text-sm font-bold text-white shadow-lg disabled:opacity-40">Merge PDFs ⚡</button>
+        <button id="go" class="mt-5 w-full rounded-xl bg-gradient-to-r from-violet-500 to-purple-500 px-4 py-3 text-sm font-bold text-white shadow-lg disabled:opacity-40">Merge PDFs <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
         ${progressBarHTML()}
         <div id="result" class="mt-4"></div>
       </div>
@@ -45,7 +45,7 @@ export function render(el: HTMLElement): void {
       res.innerHTML = ''
       const ok = document.createElement('div')
       ok.className = 'rounded-xl border border-emerald-500/25 bg-emerald-500/10 p-3 text-sm text-emerald-700 dark:text-emerald-300'
-      ok.textContent = `✅ Merged ${files.length} PDFs → ${name}`
+      ok.textContent = `Done — merged ${files.length} PDFs into ${name}`
       res.appendChild(ok)
       setProgress(100, 'Done')
       toast('Merged PDF downloaded.', 'ok')

@@ -21,7 +21,7 @@ export const TOOLS: ToolMeta[] = [
     accept: 'image/*',
     multiple: true,
     badge: 'Popular',
-    icon: '🖼️',
+    icon: 'ph-file-pdf',
     gradient: 'from-indigo-500 to-violet-500',
   },
   {
@@ -33,7 +33,7 @@ export const TOOLS: ToolMeta[] = [
     accept: 'application/pdf,.pdf',
     multiple: false,
     badge: 'Popular',
-    icon: '📄',
+    icon: 'ph-file-image',
     gradient: 'from-rose-500 to-orange-500',
   },
   {
@@ -44,7 +44,7 @@ export const TOOLS: ToolMeta[] = [
     category: 'Image',
     accept: 'image/*',
     multiple: true,
-    icon: '🔄',
+    icon: 'ph-arrows-left-right',
     gradient: 'from-sky-500 to-cyan-400',
   },
   {
@@ -55,7 +55,7 @@ export const TOOLS: ToolMeta[] = [
     category: 'Image',
     accept: 'image/*',
     multiple: true,
-    icon: '🗜️',
+    icon: 'ph-arrows-in',
     gradient: 'from-emerald-500 to-teal-500',
   },
   {
@@ -66,7 +66,7 @@ export const TOOLS: ToolMeta[] = [
     category: 'PDF',
     accept: 'application/pdf,.pdf',
     multiple: true,
-    icon: '🧩',
+    icon: 'ph-stack',
     gradient: 'from-violet-500 to-purple-500',
   },
   {
@@ -77,7 +77,7 @@ export const TOOLS: ToolMeta[] = [
     category: 'PDF',
     accept: 'application/pdf,.pdf',
     multiple: false,
-    icon: '✂️',
+    icon: 'ph-scissors',
     gradient: 'from-amber-500 to-yellow-500',
   },
   {
@@ -88,7 +88,7 @@ export const TOOLS: ToolMeta[] = [
     category: 'PDF',
     accept: 'application/pdf,.pdf',
     multiple: false,
-    icon: '📦',
+    icon: 'ph-file-archive',
     gradient: 'from-green-500 to-lime-500',
   },
   {
@@ -99,7 +99,7 @@ export const TOOLS: ToolMeta[] = [
     category: 'PDF',
     accept: 'application/pdf,.pdf',
     multiple: false,
-    icon: '🔁',
+    icon: 'ph-arrow-clockwise',
     gradient: 'from-blue-500 to-indigo-500',
   },
   {
@@ -110,7 +110,7 @@ export const TOOLS: ToolMeta[] = [
     category: 'PDF',
     accept: 'application/pdf,.pdf',
     multiple: false,
-    icon: '🔤',
+    icon: 'ph-text-aa',
     gradient: 'from-slate-500 to-gray-600',
   },
   {
@@ -121,7 +121,7 @@ export const TOOLS: ToolMeta[] = [
     category: 'PDF',
     accept: '.txt,.md,.markdown,text/plain',
     multiple: false,
-    icon: '📝',
+    icon: 'ph-note-pencil',
     gradient: 'from-fuchsia-500 to-pink-500',
   },
 ]

@@ -14,7 +14,7 @@ export function render(el: HTMLElement): void {
         <div id="preview" class="mt-4 grid grid-cols-3 gap-2 sm:grid-cols-4"></div>
       </div>
       <div class="h-fit rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-700 dark:bg-slate-900">
-        <div class="text-sm font-bold text-slate-800 dark:text-slate-100">⚙️ Options</div>
+        <div class="text-sm font-bold text-slate-800 dark:text-slate-100"> <i class="ph ph-sliders-horizontal text-base" aria-hidden="true"></i> Options</div>
         <label class="mt-4 block text-xs font-semibold text-slate-500">PAGE SIZE</label>
         <select id="optSize" class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm dark:border-slate-700 dark:bg-slate-800">
           <option value="fit">Fit to image (recommended)</option>
@@ -29,7 +29,7 @@ export function render(el: HTMLElement): void {
         </select>
         <label class="mt-4 block text-xs font-semibold text-slate-500">IMAGE QUALITY: <span id="qVal">0.92</span></label>
         <input id="optQ" type="range" min="0.4" max="1" step="0.01" value="0.92" class="mt-1 w-full" />
-        <button id="go" class="mt-5 w-full rounded-xl bg-gradient-to-r from-indigo-500 to-fuchsia-500 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-indigo-500/25 transition hover:opacity-95 disabled:opacity-40">Convert to PDF ⚡</button>
+        <button id="go" class="mt-5 w-full rounded-xl bg-gradient-to-r from-indigo-500 to-fuchsia-500 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-indigo-500/25 transition hover:opacity-95 disabled:opacity-40">Convert to PDF <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
         ${progressBarHTML()}
         <div id="result" class="mt-4"></div>
       </div>
@@ -121,7 +121,7 @@ export function render(el: HTMLElement): void {
       res.innerHTML = ''
       const ok = document.createElement('div')
       ok.className = 'rounded-xl border border-emerald-500/25 bg-emerald-500/10 p-3 text-sm text-emerald-700 dark:text-emerald-300'
-      ok.textContent = `✅ Done! ${files.length} image(s) → ${name}`
+      ok.textContent = `Done — ${files.length} image(s) saved as ${name}`
       res.appendChild(ok)
       setProgress(100, 'Done')
       toast('PDF downloaded.', 'ok')

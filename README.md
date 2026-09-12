@@ -2,7 +2,7 @@
 
 Convert images and PDFs without uploading anything. **10 tools, no backend, no watermarks, 100% private** — everything runs locally in your browser.
 
-🔗 **Live demo:** _(add your Vercel URL here after deploy)_
+🔗 **Live demo:** https://easyconvert-ukew.vercel.app/
 📦 **Stack:** Vite + TypeScript + Tailwind CSS · `jspdf` · `pdfjs-dist` · `pdf-lib` · `jszip`
 
 ## ✨ Features

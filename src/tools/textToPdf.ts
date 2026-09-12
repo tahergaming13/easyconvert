@@ -9,11 +9,11 @@ export function render(el: HTMLElement): void {
     ${toolHeader(meta)}
     <div class="mt-6 grid gap-6 lg:grid-cols-[1fr_320px]">
       <div>
-        <div id="dzText" class="cursor-pointer rounded-2xl border-2 border-dashed border-slate-300 bg-slate-50/60 p-5 text-center text-sm text-slate-500 hover:border-indigo-400 dark:border-slate-700 dark:bg-slate-900/50">📝 Drop a <b>.txt / .md</b> file here or <span class="font-semibold text-indigo-500">click to browse</span><input id="txtFile" type="file" accept=".txt,.md,.markdown,text/plain" class="hidden" /></div>
+        <div id="dzText" class="dz cursor-pointer rounded-2xl border-2 border-dashed border-slate-300 bg-slate-50/60 p-5 text-center text-sm text-slate-500 hover:border-indigo-400 dark:border-slate-700 dark:bg-slate-900/50"><i class="ph ph-note-pencil text-xl text-indigo-600 dark:text-indigo-400" aria-hidden="true"></i> Drop a <b>.txt / .md</b> file here or <span class="font-semibold text-indigo-600 dark:text-indigo-400">click to browse</span><input id="txtFile" type="file" accept=".txt,.md,.markdown,text/plain" class="hidden" /></div>
         <textarea id="txtIn" rows="14" placeholder="Paste or type your text here… (Markdown headings with # work too)" class="mt-3 w-full rounded-2xl border border-slate-200 bg-white p-4 font-mono text-sm leading-relaxed dark:border-slate-700 dark:bg-slate-900"></textarea>
       </div>
       <div class="h-fit rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-700 dark:bg-slate-900">
-        <div class="text-sm font-bold">⚙️ Style</div>
+        <div class="text-sm font-bold"> <i class="ph ph-sliders-horizontal text-base" aria-hidden="true"></i> Style</div>
         <label class="mt-4 block text-xs font-semibold text-slate-500">TITLE (optional)</label>
         <input id="optTitle" placeholder="My document" class="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm dark:border-slate-700 dark:bg-slate-800" />
         <label class="mt-4 block text-xs font-semibold text-slate-500">FONT SIZE</label>
@@ -22,7 +22,7 @@ export function render(el: HTMLElement): void {
           <option value="12" selected>Normal (12)</option>
           <option value="14">Large (14)</option>
         </select>
-        <button id="go" class="mt-5 w-full rounded-xl bg-gradient-to-r from-fuchsia-500 to-pink-500 px-4 py-3 text-sm font-bold text-white shadow-lg disabled:opacity-40">Create PDF ⚡</button>
+        <button id="go" class="mt-5 w-full rounded-xl bg-gradient-to-r from-fuchsia-500 to-pink-500 px-4 py-3 text-sm font-bold text-white shadow-lg disabled:opacity-40">Create PDF <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
         ${progressBarHTML()}
       </div>
     </div>`

@@ -37,6 +37,18 @@ npm run preview # preview the production build
 - Dark mode via `.dark` class on `<html>` (Tailwind custom variant); test both themes
 - Keep bundles lean: lazy-load heavy libs (`getPdfjs()` pattern) instead of top-level imports
 
+## Design rules (anti-slop)
+
+- Type: Outfit (self-hosted via `@fontsource/outfit`, never a Google Fonts `<link>`)
+- Icons: inline Phosphor SVGs via `ic('ph-<name>', '<size-class>')` in `src/ui/icons.ts`
+  — only the set in `GLYPHS` is bundled; add a `?raw` import to extend it. No emojis in UI.
+- Shape lock: cards `rounded-2xl` · controls/inputs `rounded-xl` · pills/badges `rounded-full`
+- Accent lock: one indigo→violet gradient, reserved for logo mark + primary CTAs only
+- Motion: `.reveal` + `observeReveals()` (transform/opacity only), `btn-press` tactile
+  feedback, everything collapses under `prefers-reduced-motion` (see `style.css`)
+- One small label per hero max; headlines ≤ 2 lines; a bento grid has exactly as many
+  cells as content items — never a blank tile
+
 ## Gotchas
 
 - pdf.js v5 render API is `page.render({ canvas, viewport })` — NOT `canvasContext`
