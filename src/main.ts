@@ -39,7 +39,6 @@ function shell(): { side: HTMLElement; view: HTMLElement; foot: HTMLElement } {
     <div id="toasts" class="pointer-events-none fixed bottom-4 right-4 z-[100] flex w-[min(92vw,360px)] flex-col gap-2"></div>
     <div class="mx-auto max-w-[1400px] p-2 sm:p-4">
       <div class="overflow-hidden rounded-2xl bg-[#eef1f7] shadow-2xl shadow-blue-900/30 dark:bg-zinc-950 dark:shadow-black/50">
-        <div id="side"></div>
       <div class="flex flex-col gap-3 p-3 sm:p-4 lg:flex-row lg:items-start lg:gap-5">
         <div id="side" class="min-w-0 lg:w-60 lg:shrink-0 lg:self-stretch"></div>
         <main id="view" class="min-w-0 flex-1"></main>
