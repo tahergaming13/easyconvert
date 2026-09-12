@@ -13,13 +13,13 @@ export function render(el: HTMLElement): void {
         <div class="text-sm font-bold"> <i class="ph ph-sliders-horizontal text-base" aria-hidden="true"></i> Options</div>
         <label class="mt-4 block text-xs font-semibold text-slate-500">ANGLE</label>
         <div class="mt-1 grid grid-cols-3 gap-2">
-          <button data-ang="90" class="ang rounded-xl border-2 border-indigo-500 bg-indigo-50 px-2 py-2.5 text-sm font-bold dark:bg-indigo-950/40">90° ⟳</button>
+          <button data-ang="90" class="ang rounded-xl border-2 border-orange-500 bg-orange-50 px-2 py-2.5 text-sm font-bold dark:bg-orange-950/40">90° ⟳</button>
           <button data-ang="180" class="ang rounded-xl border border-slate-200 px-2 py-2.5 text-sm font-bold dark:border-slate-700">180°</button>
           <button data-ang="270" class="ang rounded-xl border border-slate-200 px-2 py-2.5 text-sm font-bold dark:border-slate-700">270° ⟲</button>
         </div>
         <label class="mt-4 block text-xs font-semibold text-slate-500">PAGES (all or 1-3,5)</label>
         <input id="optPages" value="all" class="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm dark:border-slate-700 dark:bg-slate-800" />
-        <button id="go" class="mt-5 w-full rounded-xl bg-gradient-to-r from-blue-500 to-indigo-500 px-4 py-3 text-sm font-bold text-white shadow-lg disabled:opacity-40">Rotate and save <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
+        <button id="go" class="mt-5 w-full btn-press rounded-xl bg-orange-700 px-4 py-3 text-sm font-bold text-white shadow-md shadow-orange-900/20 transition hover:bg-orange-800 disabled:opacity-40">Rotate and save <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
         ${progressBarHTML()}
       </div>
     </div>`
@@ -29,10 +29,10 @@ export function render(el: HTMLElement): void {
     b.addEventListener('click', () => {
       angle = Number(b.dataset.ang)
       el.querySelectorAll('.ang').forEach((x) => {
-        x.classList.remove('border-indigo-500', 'bg-indigo-50', 'dark:bg-indigo-950/40', 'border-2')
+        x.classList.remove('border-orange-500', 'bg-orange-50', 'dark:bg-orange-950/40', 'border-2')
         x.classList.add('border')
       })
-      b.classList.add('border-indigo-500', 'bg-indigo-50', 'dark:bg-indigo-950/40', 'border-2')
+      b.classList.add('border-orange-500', 'bg-orange-50', 'dark:bg-orange-950/40', 'border-2')
       b.classList.remove('border')
     }),
   )

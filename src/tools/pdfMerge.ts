@@ -13,7 +13,7 @@ export function render(el: HTMLElement): void {
         <div class="text-sm font-bold"> <i class="ph ph-sliders-horizontal text-base" aria-hidden="true"></i> Options</div>
         <label class="mt-4 block text-xs font-semibold text-slate-500">OUTPUT NAME</label>
         <input id="optName" value="easyconvert-merged.pdf" class="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm dark:border-slate-700 dark:bg-slate-800" />
-        <button id="go" class="mt-5 w-full rounded-xl bg-gradient-to-r from-violet-500 to-purple-500 px-4 py-3 text-sm font-bold text-white shadow-lg disabled:opacity-40">Merge PDFs <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
+        <button id="go" class="mt-5 w-full btn-press rounded-xl bg-orange-700 px-4 py-3 text-sm font-bold text-white shadow-md shadow-orange-900/20 transition hover:bg-orange-800 disabled:opacity-40">Merge PDFs <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
         ${progressBarHTML()}
         <div id="result" class="mt-4"></div>
       </div>

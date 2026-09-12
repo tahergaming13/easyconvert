@@ -13,7 +13,7 @@ export function toast(msg: string, kind: 'ok' | 'err' | 'info' = 'info'): void {
       ? 'border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300'
       : kind === 'err'
         ? 'border-rose-500/30 bg-rose-500/10 text-rose-700 dark:text-rose-300'
-        : 'border-indigo-500/30 bg-indigo-500/10 text-indigo-700 dark:text-indigo-300'
+        : 'border-orange-500/30 bg-orange-500/10 text-orange-700 dark:text-orange-300'
   const icon = kind === 'ok' ? 'ph-check-circle' : kind === 'err' ? 'ph-warning-circle' : 'ph-info'
   el.className = `toast pointer-events-auto flex items-start gap-2.5 rounded-2xl border px-4 py-3 text-sm shadow-lg backdrop-blur ${color} bg-white dark:bg-slate-900`
   el.innerHTML = `<span class="mt-0.5 text-base">${ic(icon, 'text-base')}</span><span class="font-medium">${msg}</span>`
@@ -32,14 +32,14 @@ export function renderTopbar(root: HTMLElement, activeId?: string): void {
   const isDark = document.documentElement.classList.contains('dark')
 
   const dropItem = (id: string, icon: string, name: string, tagline: string, active: boolean): string =>
-    `<a href="#/${id}" class="flex items-center gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-slate-100 dark:hover:bg-slate-800 ${active ? 'bg-indigo-50 dark:bg-indigo-950/50' : ''}"><span class="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300">${ic(icon, 'text-lg')}</span><span class="min-w-0"><span class="block truncate text-sm font-semibold text-slate-800 dark:text-slate-100">${name}</span><span class="block truncate text-xs text-slate-500">${tagline}</span></span></a>`
+    `<a href="#/${id}" class="flex items-center gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-slate-100 dark:hover:bg-slate-800 ${active ? 'bg-orange-50 dark:bg-orange-950/50' : ''}"><span class="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300">${ic(icon, 'text-lg')}</span><span class="min-w-0"><span class="block truncate text-sm font-semibold text-slate-800 dark:text-slate-100">${name}</span><span class="block truncate text-xs text-slate-500">${tagline}</span></span></a>`
 
   root.innerHTML = `
   <header class="sticky top-0 z-40 border-b border-slate-200/70 bg-white/85 backdrop-blur-xl dark:border-slate-800 dark:bg-slate-950/85">
     <div class="mx-auto flex h-16 max-w-6xl items-center gap-2 px-4">
       <a href="#/" class="btn-press flex items-center gap-2.5">
-        <span class="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 text-lg text-white shadow-md shadow-indigo-500/25">${ic('ph-lightning', 'text-lg')}</span>
-        <span class="text-lg font-bold tracking-tight text-slate-900 dark:text-white">Easy<span class="text-indigo-600 dark:text-indigo-400">Convert</span></span>
+        <span class="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-orange-500 to-red-600 text-lg text-white shadow-md shadow-orange-900/20">${ic('ph-lightning', 'text-lg')}</span>
+        <span class="text-lg font-bold tracking-tight text-slate-900 dark:text-white">Easy<span class="text-orange-700 dark:text-orange-300">Convert</span></span>
       </a>
       <nav class="ml-3 hidden items-center gap-1 md:flex" aria-label="Tools">
         <div class="group relative">
@@ -90,18 +90,18 @@ export function renderFooter(root: HTMLElement): void {
     <div class="mx-auto grid max-w-6xl gap-10 px-4 md:grid-cols-[1.2fr_1fr_1fr]">
       <div>
         <div class="flex items-center gap-2.5">
-          <span class="grid h-8 w-8 place-items-center rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 text-white">${ic('ph-lightning', 'text-base')}</span>
+          <span class="grid h-8 w-8 place-items-center rounded-xl bg-gradient-to-br from-orange-500 to-red-600 text-white">${ic('ph-lightning', 'text-base')}</span>
           <span class="font-bold text-slate-900 dark:text-white">EasyConvert</span>
         </div>
         <p class="mt-3 max-w-xs text-sm leading-relaxed text-slate-500 dark:text-slate-400">Free in-browser file conversion. No uploads, no accounts, no watermarks. Your files stay on your device.</p>
       </div>
       <nav aria-label="PDF tools">
         <div class="text-sm font-bold text-slate-700 dark:text-slate-200">PDF tools</div>
-        <div class="mt-3 grid gap-2 text-sm">${TOOLS.filter((t) => t.category === 'PDF').map((t) => `<a class="flex items-center gap-2 text-slate-500 transition-colors hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400" href="#/${t.id}">${ic(t.icon, 'text-base')} ${t.name}</a>`).join('')}</div>
+        <div class="mt-3 grid gap-2 text-sm">${TOOLS.filter((t) => t.category === 'PDF').map((t) => `<a class="flex items-center gap-2 text-slate-500 transition-colors hover:text-orange-700 dark:text-slate-400 dark:hover:text-orange-300" href="#/${t.id}">${ic(t.icon, 'text-base')} ${t.name}</a>`).join('')}</div>
       </nav>
       <nav aria-label="Image tools">
         <div class="text-sm font-bold text-slate-700 dark:text-slate-200">Image tools</div>
-        <div class="mt-3 grid gap-2 text-sm">${TOOLS.filter((t) => t.category === 'Image').map((t) => `<a class="flex items-center gap-2 text-slate-500 transition-colors hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400" href="#/${t.id}">${ic(t.icon, 'text-base')} ${t.name}</a>`).join('')}</div>
+        <div class="mt-3 grid gap-2 text-sm">${TOOLS.filter((t) => t.category === 'Image').map((t) => `<a class="flex items-center gap-2 text-slate-500 transition-colors hover:text-orange-700 dark:text-slate-400 dark:hover:text-orange-300" href="#/${t.id}">${ic(t.icon, 'text-base')} ${t.name}</a>`).join('')}</div>
       </nav>
     </div>
     <div class="mx-auto mt-10 flex max-w-6xl flex-wrap items-center justify-between gap-2 border-t border-slate-100 px-4 pt-6 text-xs text-slate-400 dark:border-slate-800/60">
@@ -135,10 +135,10 @@ export function createDropzone(opts: {
   let files: File[] = []
 
   container.innerHTML = `
-    <div id="dz" class="dz cursor-pointer rounded-2xl border-2 border-dashed border-slate-300 bg-slate-50/60 p-8 text-center hover:border-indigo-400 hover:bg-indigo-50/50 sm:p-10 dark:border-slate-700 dark:bg-slate-900/50 dark:hover:border-indigo-500 dark:hover:bg-indigo-950/20">
-      <div class="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-indigo-600 text-2xl text-white shadow-md shadow-indigo-600/25">${ic('ph-upload-simple', 'text-2xl')}</div>
+    <div id="dz" class="dz cursor-pointer rounded-2xl border-2 border-dashed border-slate-300 bg-slate-50/60 p-8 text-center hover:border-orange-400 hover:bg-orange-50/50 sm:p-10 dark:border-slate-700 dark:bg-slate-900/50 dark:hover:border-orange-500 dark:hover:bg-orange-950/20">
+      <div class="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-orange-700 text-2xl text-white shadow-md shadow-orange-900/20">${ic('ph-upload-simple', 'text-2xl')}</div>
       <div class="mt-4 text-base font-bold text-slate-800 dark:text-slate-100">Drag and drop files here</div>
-      <div class="mt-1 text-sm text-slate-500">or <span class="font-semibold text-indigo-600 dark:text-indigo-400">browse your files</span> · ${opts.hint ?? accept}</div>
+      <div class="mt-1 text-sm text-slate-500">or <span class="font-semibold text-orange-700 dark:text-orange-300">browse your files</span> · ${opts.hint ?? accept}</div>
       <div class="mt-2 inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-500 dark:bg-slate-800 dark:text-slate-400">${ic('ph-lock-key', 'text-xs')} Max ${maxMB} MB per file · never uploaded</div>
       <input id="dzInput" type="file" accept="${accept}" ${multiple ? 'multiple' : ''} class="hidden" />
     </div>
@@ -269,12 +269,12 @@ export function escapeHtml(s: string): string {
 export function toolHeader(meta: { icon: string; name: string; desc: string; tagline: string }): string {
   return `
   <div class="flex items-start gap-4">
-    <span class="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-indigo-600 text-white shadow-md shadow-indigo-600/25">${ic(meta.icon, 'text-3xl')}</span>
+    <span class="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-orange-700 text-white shadow-md shadow-orange-900/20">${ic(meta.icon, 'text-3xl')}</span>
     <div class="min-w-0">
       <h1 class="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl dark:text-white">${meta.name}</h1>
       <p class="mt-1 max-w-xl text-sm leading-relaxed text-slate-500 dark:text-slate-400">${meta.desc}</p>
       <div class="mt-2.5 flex flex-wrap gap-2 text-xs">
-        <span class="inline-flex items-center gap-1 rounded-full bg-indigo-600/10 px-2.5 py-1 font-semibold text-indigo-700 dark:text-indigo-300">${meta.tagline}</span>
+        <span class="inline-flex items-center gap-1 rounded-full bg-orange-700/10 px-2.5 py-1 font-semibold text-orange-700 dark:text-orange-300">${meta.tagline}</span>
         <span class="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2.5 py-1 font-semibold text-emerald-700 dark:text-emerald-300">${ic('ph-lock-key', 'text-xs')} In-browser and private</span>
       </div>
     </div>
@@ -286,7 +286,7 @@ export function progressBarHTML(): string {
   <div id="progWrap" class="mt-4 hidden" role="status" aria-live="polite">
     <div class="flex justify-between text-xs font-semibold text-slate-500 dark:text-slate-400"><span id="progLabel">Working…</span><span id="progPct">0%</span></div>
     <div class="mt-1.5 h-2 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-800">
-      <div id="progBar" class="h-full w-0 rounded-full bg-indigo-600 transition-all dark:bg-indigo-500"></div>
+      <div id="progBar" class="h-full w-0 rounded-full bg-orange-600 transition-all dark:bg-orange-500"></div>
     </div>
   </div>`
 }

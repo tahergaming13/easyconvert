@@ -28,7 +28,7 @@ export function render(el: HTMLElement): void {
         </select>
         <label class="mt-4 block text-xs font-semibold text-slate-500">PAGES (e.g. 1-3,5 or all)</label>
         <input id="optPages" value="all" class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm dark:border-slate-700 dark:bg-slate-800" />
-        <button id="go" class="mt-5 w-full rounded-xl bg-gradient-to-r from-rose-500 to-orange-500 px-4 py-3 text-sm font-bold text-white shadow-lg transition hover:opacity-95 disabled:opacity-40">Convert to images <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
+        <button id="go" class="mt-5 w-full btn-press rounded-xl bg-orange-700 px-4 py-3 text-sm font-bold text-white shadow-md shadow-orange-900/20 transition hover:bg-orange-800 disabled:opacity-40">Convert to images <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
         <button id="zipBtn" class="mt-2 hidden w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-bold text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800">Download all as ZIP <i class="ph ph-file-archive text-base" aria-hidden="true"></i></button>
         ${progressBarHTML()}
         <div id="result" class="mt-4"></div>

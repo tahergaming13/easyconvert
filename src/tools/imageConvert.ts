@@ -23,7 +23,7 @@ export function render(el: HTMLElement): void {
         </select>
         <label class="mt-4 block text-xs font-semibold text-slate-500">QUALITY (JPG/WebP): <span id="qVal">0.9</span></label>
         <input id="optQ" type="range" min="0.3" max="1" step="0.01" value="0.9" class="mt-1 w-full" />
-        <button id="go" class="mt-5 w-full rounded-xl bg-gradient-to-r from-sky-500 to-cyan-500 px-4 py-3 text-sm font-bold text-white shadow-lg transition hover:opacity-95 disabled:opacity-40">Convert images <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
+        <button id="go" class="mt-5 w-full btn-press rounded-xl bg-orange-700 px-4 py-3 text-sm font-bold text-white shadow-md shadow-orange-900/20 transition hover:bg-orange-800 disabled:opacity-40">Convert images <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
         <button id="zipBtn" class="mt-2 hidden w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-bold hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800">Download all as ZIP <i class="ph ph-file-archive text-base" aria-hidden="true"></i></button>
         ${progressBarHTML()}
       </div>

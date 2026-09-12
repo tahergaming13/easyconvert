@@ -19,7 +19,7 @@ export function render(el: HTMLElement): void {
           <option value="low">Low size — smallest (1x, q0.55)</option>
           <option value="high">High quality — bigger (1.8x, q0.85)</option>
         </select>
-        <button id="go" class="mt-5 w-full rounded-xl bg-gradient-to-r from-green-500 to-lime-500 px-4 py-3 text-sm font-bold text-white shadow-lg disabled:opacity-40">Compress <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
+        <button id="go" class="mt-5 w-full btn-press rounded-xl bg-orange-700 px-4 py-3 text-sm font-bold text-white shadow-md shadow-orange-900/20 transition hover:bg-orange-800 disabled:opacity-40">Compress <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
         ${progressBarHTML()}
         <div id="result" class="mt-4"></div>
       </div>

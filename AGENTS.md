@@ -43,7 +43,9 @@ npm run preview # preview the production build
 - Icons: inline Phosphor SVGs via `ic('ph-<name>', '<size-class>')` in `src/ui/icons.ts`
   — only the set in `GLYPHS` is bundled; add a `?raw` import to extend it. No emojis in UI.
 - Shape lock: cards `rounded-2xl` · controls/inputs `rounded-xl` · pills/badges `rounded-full`
-- Accent lock: one indigo→violet gradient, reserved for logo mark + primary CTAs only
+- Accent lock: warm orange (#ea580c family, text on white in orange-700+) against cool
+  slate neutrals (warm-cool contrast). Gradient use is limited to the logo mark;
+  all CTAs are solid orange-700 (white text) for AA contrast. No purple anywhere.
 - Motion: `.reveal` + `observeReveals()` (transform/opacity only), `btn-press` tactile
   feedback, everything collapses under `prefers-reduced-motion` (see `style.css`)
 - One small label per hero max; headlines ≤ 2 lines; a bento grid has exactly as many

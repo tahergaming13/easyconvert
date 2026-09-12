@@ -29,7 +29,7 @@ export function render(el: HTMLElement): void {
         </select>
         <label class="mt-4 block text-xs font-semibold text-slate-500">IMAGE QUALITY: <span id="qVal">0.92</span></label>
         <input id="optQ" type="range" min="0.4" max="1" step="0.01" value="0.92" class="mt-1 w-full" />
-        <button id="go" class="mt-5 w-full rounded-xl bg-gradient-to-r from-indigo-500 to-fuchsia-500 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-indigo-500/25 transition hover:opacity-95 disabled:opacity-40">Convert to PDF <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
+        <button id="go" class="mt-5 w-full btn-press rounded-xl bg-orange-700 px-4 py-3 text-sm font-bold text-white shadow-md shadow-orange-900/20 transition hover:bg-orange-800 disabled:opacity-40">Convert to PDF <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
         ${progressBarHTML()}
         <div id="result" class="mt-4"></div>
       </div>

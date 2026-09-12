@@ -13,12 +13,12 @@ export function render(el: HTMLElement): void {
       <div class="h-fit rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-700 dark:bg-slate-900">
         <div class="text-sm font-bold"> <i class="ph ph-sliders-horizontal text-base" aria-hidden="true"></i> Options</div>
         <div class="mt-4 grid gap-2">
-          <label class="flex cursor-pointer items-center gap-2 rounded-xl border border-slate-200 p-3 text-sm dark:border-slate-700"><input type="radio" name="mode" value="range" checked class="accent-indigo-500" /> Extract range to one PDF</label>
-          <label class="flex cursor-pointer items-center gap-2 rounded-xl border border-slate-200 p-3 text-sm dark:border-slate-700"><input type="radio" name="mode" value="each" class="accent-indigo-500" /> Every page → separate PDF (ZIP)</label>
+          <label class="flex cursor-pointer items-center gap-2 rounded-xl border border-slate-200 p-3 text-sm dark:border-slate-700"><input type="radio" name="mode" value="range" checked class="accent-orange-600" /> Extract range to one PDF</label>
+          <label class="flex cursor-pointer items-center gap-2 rounded-xl border border-slate-200 p-3 text-sm dark:border-slate-700"><input type="radio" name="mode" value="each" class="accent-orange-600" /> Every page → separate PDF (ZIP)</label>
         </div>
         <label class="mt-4 block text-xs font-semibold text-slate-500">PAGES (e.g. 1-3,5)</label>
         <input id="optPages" value="1-3" class="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm dark:border-slate-700 dark:bg-slate-800" />
-        <button id="go" class="mt-5 w-full rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 px-4 py-3 text-sm font-bold text-white shadow-lg disabled:opacity-40">Split <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
+        <button id="go" class="mt-5 w-full btn-press rounded-xl bg-orange-700 px-4 py-3 text-sm font-bold text-white shadow-md shadow-orange-900/20 transition hover:bg-orange-800 disabled:opacity-40">Split <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
         ${progressBarHTML()}
       </div>
     </div>`

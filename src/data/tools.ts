@@ -22,7 +22,7 @@ export const TOOLS: ToolMeta[] = [
     multiple: true,
     badge: 'Popular',
     icon: 'ph-file-pdf',
-    gradient: 'from-indigo-500 to-violet-500',
+    gradient: 'from-sky-600 to-cyan-500',
   },
   {
     id: 'pdf-to-image',
@@ -45,7 +45,7 @@ export const TOOLS: ToolMeta[] = [
     accept: 'image/*',
     multiple: true,
     icon: 'ph-arrows-left-right',
-    gradient: 'from-sky-500 to-cyan-400',
+    gradient: 'from-cyan-500 to-blue-500',
   },
   {
     id: 'image-compress',
@@ -67,7 +67,7 @@ export const TOOLS: ToolMeta[] = [
     accept: 'application/pdf,.pdf',
     multiple: true,
     icon: 'ph-stack',
-    gradient: 'from-violet-500 to-purple-500',
+    gradient: 'from-slate-700 to-slate-900',
   },
   {
     id: 'pdf-split',
@@ -100,7 +100,7 @@ export const TOOLS: ToolMeta[] = [
     accept: 'application/pdf,.pdf',
     multiple: false,
     icon: 'ph-arrow-clockwise',
-    gradient: 'from-blue-500 to-indigo-500',
+    gradient: 'from-blue-600 to-cyan-500',
   },
   {
     id: 'pdf-to-text',
@@ -122,7 +122,7 @@ export const TOOLS: ToolMeta[] = [
     accept: '.txt,.md,.markdown,text/plain',
     multiple: false,
     icon: 'ph-note-pencil',
-    gradient: 'from-fuchsia-500 to-pink-500',
+    gradient: 'from-orange-500 to-red-500',
   },
 ]
 

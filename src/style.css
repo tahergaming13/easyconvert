@@ -5,18 +5,19 @@
 @theme {
   --font-sans: "Outfit", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
-  --color-brand-50: #eef2ff;
-  --color-brand-100: #e0e7ff;
-  --color-brand-500: #6366f1;
-  --color-brand-600: #4f46e5;
-  --color-brand-700: #4338ca;
+  /* Single warm accent (orange) against cool slate neutrals: warm-cool contrast */
+  --color-brand-50: #fff7ed;
+  --color-brand-100: #ffedd5;
+  --color-brand-500: #f97316;
+  --color-brand-600: #ea580c;
+  --color-brand-700: #c2410c;
 }
 
 /*
  * Shape lock (documented rule, applied everywhere):
  * cards = rounded-2xl (16px) · controls/inputs = rounded-xl (12px) · pills/badges = rounded-full
- * Accent lock: single indigo→violet gradient reserved for logo mark + primary CTAs.
- * Everything else uses solid slate surfaces and one solid accent.
+ * Accent lock: warm orange (#ea580c family) against cool slate neutrals.
+ * Gradient use is limited to the logo mark; CTAs are solid orange-700 for contrast.
  */
 
 html {
@@ -27,6 +28,16 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  background-color: #ffffff;
+  color: #0f172a;
+}
+.dark body {
+  background-color: #020617;
+  color: #f1f5f9;
+}
+
+::selection {
+  background: rgb(234 88 12 / 0.22);
 }
 
 /* Inline SVG icons align with text and never shrink inside flex rows */
@@ -48,8 +59,8 @@ svg.ph {
 
 /* Dropzone states */
 .dz-active {
-  border-color: var(--color-brand-500) !important;
-  background: rgb(99 102 241 / 0.08) !important;
+  border-color: #ea580c !important;
+  background: rgb(234 88 12 / 0.07) !important;
   transform: scale(1.01);
 }
 .dz {
@@ -57,7 +68,7 @@ svg.ph {
 }
 
 /* Range sliders */
-input[type="range"] { accent-color: var(--color-brand-600); }
+input[type="range"] { accent-color: #c2410c; }
 
 /* Card hover lift */
 .tool-card { transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }

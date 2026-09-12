@@ -23,7 +23,7 @@ export function render(el: HTMLElement): void {
           <option value="image/webp">WebP (modern, small)</option>
           <option value="image/png">PNG (lossless, bigger)</option>
         </select>
-        <button id="go" class="mt-5 w-full rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 px-4 py-3 text-sm font-bold text-white shadow-lg disabled:opacity-40">Compress <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
+        <button id="go" class="mt-5 w-full btn-press rounded-xl bg-orange-700 px-4 py-3 text-sm font-bold text-white shadow-md shadow-orange-900/20 transition hover:bg-orange-800 disabled:opacity-40">Compress <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
         <button id="zipBtn" class="mt-2 hidden w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-bold hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800">Download all as ZIP <i class="ph ph-file-archive text-base" aria-hidden="true"></i></button>
         ${progressBarHTML()}
       </div>
