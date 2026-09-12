@@ -63,7 +63,7 @@ export const TOOLS: ToolMeta[] = [
     id: 'image-scan',
     name: 'Document Scanner',
     tagline: 'Photo → clean scan',
-    desc: 'Turn document photos into crisp scans: white background, sharp text, B&W mode.',
+    desc: 'Point at a document: auto edge detection, perspective crop, white background, B&W mode.',
     category: 'Image',
     accept: 'image/*',
     multiple: false,
