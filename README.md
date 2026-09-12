@@ -1,13 +1,13 @@
 # ⚡ EasyConvert — Free In-Browser File Converter
 
-Convert images and PDFs without uploading anything. **10 tools, no backend, no watermarks, 100% private** — everything runs locally in your browser.
+Convert images and PDFs without uploading anything. **11 tools, no backend, no watermarks, 100% private** — everything runs locally in your browser.
 
 🔗 **Live demo:** https://easyconvert-ukew.vercel.app/
 📦 **Stack:** Vite + TypeScript + Tailwind CSS · `jspdf` · `pdfjs-dist` · `pdf-lib` · `jszip`
 
 ## ✨ Features
 
-- **10 tools in one site** with a top-bar picker (Images ▾ / PDF ▾), search, and mobile menu
+- **11 tools in one site** with a top-bar picker (Images ▾ / PDF ▾), search, and mobile menu
 - **Light / dark mode** with beautiful modern UI
 - **Drag & drop** + click to browse + reorder files (↑ ↓)
 - **Batch conversion + Download as ZIP**

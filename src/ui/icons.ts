@@ -29,6 +29,7 @@ import svgMagnifyingGlass from '@phosphor-icons/core/assets/regular/magnifying-g
 import svgMoon from '@phosphor-icons/core/assets/regular/moon.svg?raw'
 import svgNotePencil from '@phosphor-icons/core/assets/regular/note-pencil.svg?raw'
 import svgScissors from '@phosphor-icons/core/assets/regular/scissors.svg?raw'
+import svgScan from '@phosphor-icons/core/assets/regular/scan.svg?raw'
 import svgShieldCheck from '@phosphor-icons/core/assets/regular/shield-check.svg?raw'
 import svgSlidersHorizontal from '@phosphor-icons/core/assets/regular/sliders-horizontal.svg?raw'
 import svgStack from '@phosphor-icons/core/assets/regular/stack.svg?raw'
@@ -67,6 +68,7 @@ const GLYPHS: Record<string, string> = {
   moon: svgMoon,
   'note-pencil': svgNotePencil,
   scissors: svgScissors,
+  scan: svgScan,
   'shield-check': svgShieldCheck,
   'sliders-horizontal': svgSlidersHorizontal,
   stack: svgStack,

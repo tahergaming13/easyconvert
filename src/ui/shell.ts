@@ -65,7 +65,7 @@ export function renderSidebar(root: HTMLElement, activeId?: string): void {
   <aside class="sticky top-4 hidden max-h-[calc(100vh-2rem)] w-60 shrink-0 flex-col gap-5 overflow-y-auto pr-1 lg:flex lg:h-full">
     <a href="#/" class="btn-press flex items-center gap-2.5 px-1 pt-1">
       <span class="grid h-9 w-9 place-items-center rounded-xl bg-blue-600 text-lg text-white shadow-sm">${ic('ph-lightning', 'text-lg')}</span>
-      <span class="leading-tight"><span class="block text-[15px] font-extrabold tracking-tight text-zinc-900 dark:text-white">EasyConvert</span><span class="block font-mono text-[10px] font-medium text-zinc-400">10 tools · no uploads</span></span>
+      <span class="leading-tight"><span class="block text-[15px] font-extrabold tracking-tight text-zinc-900 dark:text-white">EasyConvert</span><span class="block font-mono text-[10px] font-medium text-zinc-400">11 tools · no uploads</span></span>
     </a>
     <nav class="grid gap-0.5" aria-label="Primary">
       ${navItem('', 'ph-house', 'Home', !activeId)}

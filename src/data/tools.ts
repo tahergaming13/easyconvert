@@ -60,6 +60,18 @@ export const TOOLS: ToolMeta[] = [
     tile: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-400/15 dark:text-emerald-300',
   },
   {
+    id: 'image-scan',
+    name: 'Document Scanner',
+    tagline: 'Photo → clean scan',
+    desc: 'Turn document photos into crisp scans: white background, sharp text, B&W mode.',
+    category: 'Image',
+    accept: 'image/*',
+    multiple: false,
+    badge: 'New',
+    icon: 'ph-scan',
+    tile: 'bg-indigo-100 text-indigo-600 dark:bg-indigo-400/15 dark:text-indigo-300',
+  },
+  {
     id: 'pdf-merge',
     name: 'Merge PDF',
     tagline: 'Join PDFs',

@@ -22,7 +22,7 @@ npm run preview # preview the production build
 ## Architecture
 
 - `src/main.ts` — app shell, hash router, homepage (tool grid + search)
-- `src/data/tools.ts` — the 10 tool definitions (single source of truth for nav/cards)
+- `src/data/tools.ts` — the 11 tool definitions (single source of truth for nav/cards)
 - `src/ui/shell.ts` — topbar, theme toggle, `createDropzone()`, progress, toasts, `toolHeader()`
 - `src/lib/files.ts` — `downloadBlob`, `loadImage`, `canvasToBlob`, `parsePageRange`, lazy `getPdfjs()`
 - `src/tools/*.ts` — one file per tool, each exports `render(el: HTMLElement): void`

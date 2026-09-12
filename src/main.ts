@@ -13,6 +13,7 @@ import { render as rImageToPdf } from './tools/imageToPdf.ts'
 import { render as rPdfToImage } from './tools/pdfToImage.ts'
 import { render as rImageConvert } from './tools/imageConvert.ts'
 import { render as rImageCompress } from './tools/imageCompress.ts'
+import { render as rImageScan } from './tools/imageScan.ts'
 import { render as rPdfMerge } from './tools/pdfMerge.ts'
 import { render as rPdfSplit } from './tools/pdfSplit.ts'
 import { render as rPdfCompress } from './tools/pdfCompress.ts'
@@ -25,6 +26,7 @@ const RENDERERS: Record<string, (el: HTMLElement) => void> = {
   'pdf-to-image': rPdfToImage,
   'image-convert': rImageConvert,
   'image-compress': rImageCompress,
+  'image-scan': rImageScan,
   'pdf-merge': rPdfMerge,
   'pdf-split': rPdfSplit,
   'pdf-compress': rPdfCompress,
@@ -120,7 +122,7 @@ function renderHome(v: HTMLElement): void {
       <div class="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h1 class="text-lg font-bold tracking-tight text-zinc-900 md:text-xl dark:text-white">What do you want to convert today?</h1>
-          <p class="mt-0.5 text-[13px] text-zinc-500 dark:text-zinc-400">Ten free tools. Files never leave your device.</p>
+          <p class="mt-0.5 text-[13px] text-zinc-500 dark:text-zinc-400">Eleven free tools. Files never leave your device.</p>
         </div>
         <div class="flex w-full max-w-xs items-center gap-2 rounded-xl bg-zinc-100 px-3 py-2 focus-within:ring-2 focus-within:ring-blue-500 sm:w-64 dark:bg-white/5">
           <span class="text-zinc-400">${ic('ph-magnifying-glass', 'text-base')}</span>
