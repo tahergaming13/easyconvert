@@ -19,6 +19,7 @@ import svgFileImage from '@phosphor-icons/core/assets/regular/file-image.svg?raw
 import svgFilePdf from '@phosphor-icons/core/assets/regular/file-pdf.svg?raw'
 import svgFileText from '@phosphor-icons/core/assets/regular/file-text.svg?raw'
 import svgFileX from '@phosphor-icons/core/assets/regular/file-x.svg?raw'
+import svgHouse from '@phosphor-icons/core/assets/regular/house.svg?raw'
 import svgImage from '@phosphor-icons/core/assets/regular/image.svg?raw'
 import svgInfo from '@phosphor-icons/core/assets/regular/info.svg?raw'
 import svgLightning from '@phosphor-icons/core/assets/regular/lightning.svg?raw'
@@ -56,6 +57,7 @@ const GLYPHS: Record<string, string> = {
   'file-pdf': svgFilePdf,
   'file-text': svgFileText,
   'file-x': svgFileX,
+  house: svgHouse,
   image: svgImage,
   info: svgInfo,
   lightning: svgLightning,

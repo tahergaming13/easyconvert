@@ -13,7 +13,7 @@ export function render(el: HTMLElement): void {
         <div id="dz"></div>
         <div id="preview" class="mt-4 grid grid-cols-3 gap-2 sm:grid-cols-4"></div>
       </div>
-      <div class="h-fit rounded-2xl border border-zinc-200 bg-white p-5 dark:border-zinc-700 dark:bg-zinc-900">
+      <div class="h-fit rounded-2xl border border-zinc-200 bg-zinc-100/70 p-5 dark:border-white/10 dark:bg-white/5">
         <div class="text-sm font-bold text-zinc-800 dark:text-zinc-100"> <i class="ph ph-sliders-horizontal text-base" aria-hidden="true"></i> Options</div>
         <label class="mt-4 block text-xs font-semibold text-zinc-500">PAGE SIZE</label>
         <select id="optSize" class="mt-1 w-full rounded-xl border border-zinc-200 bg-white px-3 py-2.5 text-sm dark:border-zinc-700 dark:bg-zinc-800">
@@ -29,7 +29,7 @@ export function render(el: HTMLElement): void {
         </select>
         <label class="mt-4 block text-xs font-semibold text-zinc-500">IMAGE QUALITY: <span id="qVal">0.92</span></label>
         <input id="optQ" type="range" min="0.4" max="1" step="0.01" value="0.92" class="mt-1 w-full" />
-        <button id="go" class="mt-5 w-full btn-press rounded-xl bg-lime-300 px-4 py-3 text-sm font-bold text-zinc-950 shadow-md shadow-lime-950/10 transition hover:bg-lime-200 disabled:opacity-40">Convert to PDF <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
+        <button id="go" class="mt-5 w-full btn-press rounded-xl bg-zinc-950 px-4 py-3 text-sm font-bold text-white shadow-md transition hover:bg-zinc-800 disabled:opacity-40 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200">Convert to PDF <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
         ${progressBarHTML()}
         <div id="result" class="mt-4"></div>
       </div>

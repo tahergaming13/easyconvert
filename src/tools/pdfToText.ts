@@ -11,10 +11,10 @@ export function render(el: HTMLElement): void {
         <div id="dz"></div>
         <textarea id="txtOut" rows="14" placeholder="Extracted text will appear here…" class="mt-4 w-full rounded-2xl border border-zinc-200 bg-white p-4 font-mono text-sm leading-relaxed dark:border-zinc-700 dark:bg-zinc-900"></textarea>
       </div>
-      <div class="h-fit rounded-2xl border border-zinc-200 bg-white p-5 dark:border-zinc-700 dark:bg-zinc-900">
+      <div class="h-fit rounded-2xl border border-zinc-200 bg-zinc-100/70 p-5 dark:border-white/10 dark:bg-white/5">
         <div class="text-sm font-bold"> <i class="ph ph-sliders-horizontal text-base" aria-hidden="true"></i> Options</div>
-        <label class="mt-4 flex items-center gap-2 text-sm"><input id="optSep" type="checkbox" checked class="h-4 w-4 accent-lime-600" /> Add page separators</label>
-        <button id="go" class="mt-4 w-full btn-press rounded-xl bg-lime-300 px-4 py-3 text-sm font-bold text-zinc-950 shadow-md shadow-lime-950/10 transition hover:bg-lime-200 disabled:opacity-40">Extract text <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
+        <label class="mt-4 flex items-center gap-2 text-sm"><input id="optSep" type="checkbox" checked class="h-4 w-4 accent-blue-600" /> Add page separators</label>
+        <button id="go" class="mt-4 w-full btn-press rounded-xl bg-zinc-950 px-4 py-3 text-sm font-bold text-white shadow-md transition hover:bg-zinc-800 disabled:opacity-40 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200">Extract text <i class="ph ph-lightning text-base" aria-hidden="true"></i></button>
         <button id="dl" class="mt-2 hidden w-full rounded-xl border border-zinc-200 px-4 py-2.5 text-sm font-bold hover:bg-zinc-50 dark:border-zinc-700 dark:hover:bg-zinc-800">Download .txt <i class="ph ph-download-simple text-base" aria-hidden="true"></i></button>
         <button id="copy" class="mt-2 hidden w-full rounded-xl border border-zinc-200 px-4 py-2.5 text-sm font-bold hover:bg-zinc-50 dark:border-zinc-700 dark:hover:bg-zinc-800">Copy <i class="ph ph-copy text-base" aria-hidden="true"></i></button>
         ${progressBarHTML()}

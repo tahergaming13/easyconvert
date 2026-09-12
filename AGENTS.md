@@ -37,22 +37,24 @@ npm run preview # preview the production build
 - Dark mode via `.dark` class on `<html>` (Tailwind custom variant); test both themes
 - Keep bundles lean: lazy-load heavy libs (`getPdfjs()` pattern) instead of top-level imports
 
-## Design rules (anti-slop)
+## Design rules (anti-slop, dashboard edition)
 
+- Layout: dashboard shell — royal-blue canvas `#2b5cf6`, floating app card
+  (`#eef1f7` light / `zinc-950` dark), sticky grouped sidebar, workspace cards,
+  right rail on home. Mobile: top bar + drawer, single column.
 - Type: Outfit for UI, JetBrains Mono for labels/numerals/kbd (both self-hosted
   via `@fontsource`, never a Google Fonts `<link>`)
-- Color: monochrome ink (`zinc-950`) / bone (`#fafaf9`) surfaces with hairline
-  borders, one signal-lime accent (`lime-300` on dark, `lime-700` text on light).
-  No purple, no orange, no gradients except the logo mark. Dark-first, both modes.
+- Color: one royal-blue accent (`blue-600`, `blue-700` text on light) + ink-black
+  primary buttons (white buttons in dark mode). File-type tiles are pastel
+  (see `tile` in `data/tools.ts`). No purple, no orange, no lime branding.
 - Icons: inline Phosphor SVGs via `ic('ph-<name>', '<size-class>')` in `src/ui/icons.ts`
   — only the set in `GLYPHS` is bundled; add a `?raw` import to extend it. No emojis in UI.
-- Tiles/badges: `tile()` helper in `shell.ts` (ink chip + lime glyph, inverted in dark)
-- Shape lock: cards `rounded-2xl` · controls/inputs `rounded-xl` · pills/badges `rounded-full`
+- Shape lock: shell + cards `rounded-2xl` · controls/inputs `rounded-xl` ·
+  pills/badges `rounded-full` · sidebar nav `rounded-xl`
 - Motion: `.reveal` + `observeReveals()` (transform/opacity only), `btn-press` tactile
-  feedback, film grain on `body::after`, everything collapses under
-  `prefers-reduced-motion` (see `style.css`)
-- One small label per hero max; headlines ≤ 2 lines; a bento grid has exactly as many
-  cells as content items — never a blank tile
+  feedback, everything collapses under `prefers-reduced-motion` (see `style.css`)
+- Queue rows mirror the dashboard pattern: pastel type icon, name, mono
+  `size · ready` line, reorder + remove actions
 
 ## Gotchas
 

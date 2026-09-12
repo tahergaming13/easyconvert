@@ -8,11 +8,9 @@ export interface ToolMeta {
   multiple: boolean
   badge?: string
   icon: string
-  /** Solid tile classes (ink chip, lime glyph — inverts in dark mode). No gradients. */
+  /** Pastel file-type tile (light) / tinted glyph on translucent tile (dark). */
   tile: string
 }
-
-const TILE = 'bg-zinc-950 text-lime-300 dark:bg-lime-300 dark:text-zinc-950'
 
 export const TOOLS: ToolMeta[] = [
   {
@@ -25,7 +23,7 @@ export const TOOLS: ToolMeta[] = [
     multiple: true,
     badge: 'Popular',
     icon: 'ph-file-pdf',
-    tile: TILE,
+    tile: 'bg-blue-100 text-blue-600 dark:bg-blue-400/15 dark:text-blue-300',
   },
   {
     id: 'pdf-to-image',
@@ -37,7 +35,7 @@ export const TOOLS: ToolMeta[] = [
     multiple: false,
     badge: 'Popular',
     icon: 'ph-file-image',
-    tile: TILE,
+    tile: 'bg-cyan-100 text-cyan-700 dark:bg-cyan-400/15 dark:text-cyan-300',
   },
   {
     id: 'image-convert',
@@ -48,7 +46,7 @@ export const TOOLS: ToolMeta[] = [
     accept: 'image/*',
     multiple: true,
     icon: 'ph-arrows-left-right',
-    tile: TILE,
+    tile: 'bg-sky-100 text-sky-600 dark:bg-sky-400/15 dark:text-sky-300',
   },
   {
     id: 'image-compress',
@@ -59,7 +57,7 @@ export const TOOLS: ToolMeta[] = [
     accept: 'image/*',
     multiple: true,
     icon: 'ph-arrows-in',
-    tile: TILE,
+    tile: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-400/15 dark:text-emerald-300',
   },
   {
     id: 'pdf-merge',
@@ -70,7 +68,7 @@ export const TOOLS: ToolMeta[] = [
     accept: 'application/pdf,.pdf',
     multiple: true,
     icon: 'ph-stack',
-    tile: TILE,
+    tile: 'bg-amber-100 text-amber-700 dark:bg-amber-400/15 dark:text-amber-300',
   },
   {
     id: 'pdf-split',
@@ -81,7 +79,7 @@ export const TOOLS: ToolMeta[] = [
     accept: 'application/pdf,.pdf',
     multiple: false,
     icon: 'ph-scissors',
-    tile: TILE,
+    tile: 'bg-rose-100 text-rose-600 dark:bg-rose-400/15 dark:text-rose-300',
   },
   {
     id: 'pdf-compress',
@@ -92,7 +90,7 @@ export const TOOLS: ToolMeta[] = [
     accept: 'application/pdf,.pdf',
     multiple: false,
     icon: 'ph-file-archive',
-    tile: TILE,
+    tile: 'bg-teal-100 text-teal-700 dark:bg-teal-400/15 dark:text-teal-300',
   },
   {
     id: 'pdf-rotate',
@@ -103,7 +101,7 @@ export const TOOLS: ToolMeta[] = [
     accept: 'application/pdf,.pdf',
     multiple: false,
     icon: 'ph-arrow-clockwise',
-    tile: TILE,
+    tile: 'bg-zinc-200 text-zinc-600 dark:bg-white/10 dark:text-zinc-300',
   },
   {
     id: 'pdf-to-text',
@@ -114,7 +112,7 @@ export const TOOLS: ToolMeta[] = [
     accept: 'application/pdf,.pdf',
     multiple: false,
     icon: 'ph-text-aa',
-    tile: TILE,
+    tile: 'bg-lime-100 text-lime-700 dark:bg-lime-400/15 dark:text-lime-300',
   },
   {
     id: 'text-to-pdf',
@@ -125,7 +123,7 @@ export const TOOLS: ToolMeta[] = [
     accept: '.txt,.md,.markdown,text/plain',
     multiple: false,
     icon: 'ph-note-pencil',
-    tile: TILE,
+    tile: 'bg-red-100 text-red-600 dark:bg-red-400/15 dark:text-red-300',
   },
 ]
 

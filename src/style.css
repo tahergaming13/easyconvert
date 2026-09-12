@@ -5,22 +5,16 @@
 @theme {
   --font-sans: "Outfit", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
-  /* Signal lime on monochrome ink/bone. Warm-cool theory replaced by
-     high-voltage contrast: near-black + off-white + one electric accent. */
-  --color-signal-200: #d9f99d;
-  --color-signal-300: #bef264;
-  --color-signal-400: #a3e635;
-  --color-signal-700: #4d7c0f;
-  --color-ink-950: #09090b;
-  --color-ink-900: #101013;
-  --color-bone-50: #fafaf9;
+  /* Dashboard system: royal-blue canvas, white shell, ink text, one blue accent.
+     Primary actions are solid ink-black (white in dark mode). No gradients on
+     controls; the aurora artwork on the feature card is the single exception. */
+  --color-canvas: #2b5cf6;
+  --color-ink-950: #101223;
 }
 
 /*
- * Shape lock: cards rounded-2xl (16px) · controls rounded-xl (12px) · pills rounded-full.
- * Accent lock: signal lime only — logo mark, primary CTAs, active states, key numerals.
- * Surfaces stay monochrome (white / zinc-950) with hairline borders. No gradients
- * except the logo mark. No glows, no glassmorphism.
+ * Shape lock: app shell + cards rounded-2xl (16px) · controls rounded-xl (12px)
+ * pills/badges rounded-full. Sidebar nav items rounded-xl.
  */
 
 html {
@@ -31,31 +25,17 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  background-color: #fafaf9;
-  color: #09090b;
+  background-color: #2b5cf6;
+  color: #101223;
 }
 .dark body {
-  background-color: #09090b;
+  background-color: #080a18;
   color: #f4f4f5;
 }
 
 ::selection {
-  background: #bef264;
-  color: #09090b;
-}
-
-/* Film grain — fixed texture layer, pointer-transparent, never on scroll containers */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 60;
-  pointer-events: none;
-  opacity: 0.032;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.7'/%3E%3C/svg%3E");
-}
-.dark body::after {
-  opacity: 0.05;
+  background: #2563eb;
+  color: #ffffff;
 }
 
 /* Inline SVG icons align with text and never shrink inside flex rows */
@@ -64,34 +44,33 @@ svg.ph {
   vertical-align: -0.12em;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar { width: 10px; height: 10px; }
+/* Custom scrollbar (thin, neutral — dashboard density) */
+::-webkit-scrollbar { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb {
-  background: rgb(161 161 170 / 0.45);
+  background: rgb(161 161 170 / 0.5);
   border-radius: 8px;
-  border: 2px solid transparent;
-  background-clip: content-box;
 }
-.dark ::-webkit-scrollbar-thumb { background: rgb(82 82 91 / 0.8); background-clip: content-box; }
+.dark ::-webkit-scrollbar-thumb { background: rgb(82 82 91 / 0.8); }
+
+/* Sidebar nav */
+.side-link { transition: background .15s ease, color .15s ease; }
 
 /* Dropzone states */
 .dz-active {
-  border-color: #a3e635 !important;
-  background: rgb(163 230 53 / 0.07) !important;
-  transform: scale(1.01);
+  border-color: #2563eb !important;
+  background: rgb(37 99 235 / 0.06) !important;
 }
 .dz {
   transition: border-color .18s ease, background .18s ease, transform .18s ease;
 }
 
 /* Range sliders */
-input[type="range"] { accent-color: #4d7c0f; }
-.dark input[type="range"] { accent-color: #bef264; }
+input[type="range"] { accent-color: #2563eb; }
 
-/* Card hover lift */
-.tool-card { transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
-.tool-card:hover { transform: translateY(-3px); }
+/* Card hover lift (subtle — dashboard restraint) */
+.tool-card { transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease; }
+.tool-card:hover { transform: translateY(-2px); }
 
 /* Tactile buttons */
 .btn-press { transition: transform .12s ease, background .15s ease, border-color .15s ease, color .15s ease; }
@@ -104,16 +83,24 @@ input[type="range"] { accent-color: #4d7c0f; }
 }
 .toast { animation: toast-in .22s ease; }
 
-/* Scroll reveal (wired via observeReveals in shell.ts; transform+opacity only) */
+/* Scroll reveal (transform+opacity only) */
 .reveal {
   opacity: 0;
-  transform: translateY(18px);
-  transition: opacity .6s cubic-bezier(0.16, 1, 0.3, 1), transform .6s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(14px);
+  transition: opacity .5s cubic-bezier(0.16, 1, 0.3, 1), transform .5s cubic-bezier(0.16, 1, 0.3, 1);
   transition-delay: var(--reveal-delay, 0ms);
 }
 .reveal.in {
   opacity: 1;
   transform: none;
+}
+
+/* Aurora artwork for the feature card (the one sanctioned gradient) */
+.aurora {
+  background:
+    radial-gradient(120% 140% at 85% 10%, rgba(125, 211, 252, 0.9) 0%, rgba(125, 211, 252, 0) 45%),
+    radial-gradient(120% 160% at 15% 90%, rgba(129, 140, 248, 0.85) 0%, rgba(129, 140, 248, 0) 50%),
+    linear-gradient(135deg, #1d4ed8 0%, #3b82f6 55%, #2563eb 100%);
 }
 
 /* Preview images */
@@ -127,12 +114,11 @@ input[type="range"] { accent-color: #4d7c0f; }
   overflow: hidden;
 }
 
-/* Reduced motion: everything collapses to instant/static */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .toast { animation: none; }
   .tool-card, .tool-card:hover { transform: none; }
   .dz, .dz-active { transform: none; }
-  body::after { display: none; }
 }
